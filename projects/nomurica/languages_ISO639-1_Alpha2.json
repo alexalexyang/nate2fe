@@ -924,5 +924,15 @@
     "code": "zu",
     "name": "Zulu",
     "native": "isiZulu"
+  },
+  {
+    "code": "en",
+    "name": "English",
+    "native": "English"
+  },
+  {
+    "code": "zh",
+    "name": "Chinese",
+    "native": "中文"
   }
 ]
