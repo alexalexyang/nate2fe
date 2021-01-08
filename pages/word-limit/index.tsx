@@ -39,12 +39,12 @@ const WordLimit: NextPage = () => {
   const [length, setLength] = useState(0);
   const [count, setCount] = useState(0);
 
-  const handleLength = (e) => {
+  const handleLength = (e: any) => {
     const initialCount = e.target.value;
     setLength(parseInt(initialCount));
   };
 
-  const handleCount = (e) => {
+  const handleCount = (e: any) => {
     const text = e.target.value;
     setCount(length - text.length);
   };

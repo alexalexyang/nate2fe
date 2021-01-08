@@ -64,10 +64,20 @@ const StyledBody = styled.div`
   }
 `;
 
-const StyledVideo = styled.div``;
+interface MovieType {
+  original_title: string;
+  title: string;
+  release_date: string;
+  production_countries: string[];
+  poster_path: string;
+  trailer: string;
+  overview: string;
+}
+
+type MoviesType = MovieType[] | null;
 
 const Nomurica: NextPage = () => {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState<MoviesType>(null);
 
   const getMovies = async () => {
     const movies = await (
@@ -77,8 +87,8 @@ const Nomurica: NextPage = () => {
   };
 
   const renderMovies = () => {
-    return movies.length
-      ? movies.map((movie) => (
+    return movies && movies!.length
+      ? movies!.map((movie) => (
           <StyledCard key={movie.original_title}>
             <StyledHeader>
               <h3>Title: {movie.title}</h3>

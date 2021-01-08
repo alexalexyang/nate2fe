@@ -19,11 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const MainLayout: NextPage<Props> = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+const MainLayout: NextPage<Props> = ({ children }: Props) => {
   const classes = useStyles();
   const { user } = useUser();
 
@@ -33,7 +29,7 @@ const MainLayout: NextPage<Props> = ({
     <>
       <Navbar />
       <Box className={classes.root}>
-        <Container maxWidth="md">{children}</Container>
+        <Container maxWidth="md">{children!}</Container>
       </Box>
     </>
   );

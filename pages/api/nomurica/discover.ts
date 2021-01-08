@@ -79,7 +79,7 @@ export default async function shows(req: NextApiRequest, res: NextApiResponse) {
 
             if (details.production_countries.length) {
               const production_countries = details.production_countries.map(
-                (country) => country.name
+                (country: any) => country.name
               );
               picked.production_countries = production_countries;
             }

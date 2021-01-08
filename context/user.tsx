@@ -1,9 +1,18 @@
-import { createContext, useContext } from "react";
+import { Dispatch, SetStateAction, createContext, useContext } from "react";
 
-export const User = createContext({
+interface UserProps {
+  auth: any;
+  groups?: any;
+  loading: boolean;
+}
+interface UserContextProps {
+  user: UserProps | null;
+  setUser: Dispatch<SetStateAction<UserProps>>;
+}
+
+export const User = createContext<UserContextProps>({
   user: null,
-  setUser: (arg: any) => {
-    return arg;
-  },
+  setUser: () => {},
 });
+
 export const useUser = () => useContext(User);

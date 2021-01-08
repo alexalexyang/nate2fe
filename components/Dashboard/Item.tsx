@@ -23,7 +23,7 @@ const Dashboard: NextPage<IDashboard> = ({
   // let Image = require(`./logos/${app}.svg`).default;
   let Image = require(`./logos/${app}.json`);
 
-  if (!user.auth && auth) {
+  if (!user!.auth && auth) {
     return null;
   }
 
