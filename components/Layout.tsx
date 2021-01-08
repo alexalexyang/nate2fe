@@ -1,4 +1,5 @@
 import { Box, Container } from "@material-ui/core";
+import React, { ReactNode } from "react";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 
 import Loading from "./Loading";
@@ -7,7 +8,7 @@ import { NextPage } from "next";
 import { useUser } from "../context/user";
 
 type Props = {
-  children: NextPage;
+  children: ReactNode;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -18,7 +19,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const MainLayout: NextPage<Props> = ({ children }) => {
+const MainLayout: NextPage<Props> = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const classes = useStyles();
   const { user } = useUser();
 

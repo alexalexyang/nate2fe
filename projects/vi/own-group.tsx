@@ -3,7 +3,11 @@ import { InviteForm, personalMessage } from "../../projects/vi";
 
 import { NextPage } from "next";
 
-const OwnGroup: NextPage = ({ user }) => {
+interface OwnGroupProps {
+  user: any;
+}
+
+const OwnGroup: NextPage<OwnGroupProps> = ({ user }: OwnGroupProps) => {
   // If own group lacks invitees, check if should invite more
   // Render invite reminder if yes
 

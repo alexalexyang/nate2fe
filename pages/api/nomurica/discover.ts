@@ -6,14 +6,16 @@ import languages from "../../../projects/nomurica/languages_ISO639-1_Alpha2.json
 
 const { serverRuntimeConfig } = getConfig();
 
-const getLanguages = (languages: object[], num: number) => {
-  const choices: object[] = [];
+type LangType = typeof languages;
+
+const getLanguages = (languages: LangType, num: number) => {
+  const choices: string[] = [];
 
   let counter = num;
   while (counter !== 0) {
     const index = Math.floor(Math.random() * languages.length);
 
-    if (!choices.includes(languages[index])) {
+    if (!choices.includes(languages[index].code)) {
       choices.push(languages[index].code);
       counter--;
     } else {

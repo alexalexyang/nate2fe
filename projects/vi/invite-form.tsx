@@ -73,7 +73,7 @@ const InviteForm: NextPage<InviteFormProps> = ({ personalMessage, degree }) => {
               type="text"
               inputRef={register({ required: "required" })}
             />
-            {errors.name && <p>{errors.name.message}</p>}
+            {errors.name1 && <p>{errors.name1.message}</p>}
             <TextField
               id="email1"
               label="Email"
@@ -83,7 +83,7 @@ const InviteForm: NextPage<InviteFormProps> = ({ personalMessage, degree }) => {
               type="email"
               inputRef={register({ required: "required" })}
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email1 && <p>{errors.email1.message}</p>}
             <TextField
               id="message1"
               label="Message"
@@ -94,7 +94,7 @@ const InviteForm: NextPage<InviteFormProps> = ({ personalMessage, degree }) => {
               rows={15}
               inputRef={register({ required: "required" })}
             />
-            {errors.message && <p>{errors.message.message}</p>}
+            {errors.message1 && <p>{errors.message1.message}</p>}
           </Box>
 
           <Box mt="10px" mb="10px" display="flex" flexDirection="column">
@@ -145,7 +145,7 @@ const InviteForm: NextPage<InviteFormProps> = ({ personalMessage, degree }) => {
                   type="text"
                   inputRef={register({ required: "required" })}
                 />
-                {errors.name && <p>{errors.name.message}</p>}
+                {errors.name2 && <p>{errors.name2.message}</p>}
                 <TextField
                   id="email2"
                   label="Email"
@@ -155,7 +155,7 @@ const InviteForm: NextPage<InviteFormProps> = ({ personalMessage, degree }) => {
                   type="email"
                   inputRef={register({ required: "required" })}
                 />
-                {errors.email && <p>{errors.email.message}</p>}
+                {errors.email2 && <p>{errors.email2.message}</p>}
                 <TextField
                   id="message2"
                   label="Message"
@@ -166,7 +166,7 @@ const InviteForm: NextPage<InviteFormProps> = ({ personalMessage, degree }) => {
                   rows={15}
                   inputRef={register({ required: "required" })}
                 />
-                {errors.message && <p>{errors.message.message}</p>}
+                {errors.message2 && <p>{errors.message2.message}</p>}
               </>
             )}
           </Box>

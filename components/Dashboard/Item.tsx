@@ -13,7 +13,12 @@ interface IDashboard {
   auth: boolean;
 }
 
-const Dashboard: NextPage<IDashboard> = ({ app, url, description, auth }) => {
+const Dashboard: NextPage<IDashboard> = ({
+  app,
+  url,
+  description,
+  auth,
+}: IDashboard) => {
   const { user } = useUser();
   // let Image = require(`./logos/${app}.svg`).default;
   let Image = require(`./logos/${app}.json`);
