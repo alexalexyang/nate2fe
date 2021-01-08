@@ -1,12 +1,6 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/next"
-    }
-  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -25,7 +19,7 @@
     "isomorphic-unfetch": "^3.1.0",
     "js-cookie": "^2.2.1",
     "mongoose": "^5.11.10",
-    "next": "latest",
+    "next": "^10.0.5",
     "next-svgr": "0.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
