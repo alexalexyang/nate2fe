@@ -1,4 +1,10 @@
-import { Box, Button, CardMedia, Container } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  CardMedia,
+  Container,
+  Typography,
+} from "@material-ui/core";
 
 import { NextPage } from "next";
 import fetch from "isomorphic-unfetch";
@@ -131,6 +137,15 @@ const Nomurica: NextPage = () => {
     <Box>
       <Container>
         <h1>Nomurica</h1>
+        <Typography>
+          This app bans English and Chinese and then finds a bunch of films from
+          around the world.
+        </Typography>
+        <Typography>
+          Originally, it was supposed to mitigate US cultural hegemony by
+          highlighting films from the Global South. Originally.
+        </Typography>
+        <Typography>Work in progress.</Typography>
       </Container>
       <Container>
         <Button
