@@ -16,6 +16,7 @@ type LangType = typeof languages;
 
 const banned = [
   "United States of America",
+  "United Kingdom",
   "United Kingdom of Great Britain and Northern Ireland",
   "China",
   "Hong Kong",
