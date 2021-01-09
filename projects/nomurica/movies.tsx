@@ -9,7 +9,7 @@ const StyledCard = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 30px;
   box-shadow: 1px 1px 5px lightgray;
 
   :hover {
