@@ -87,13 +87,6 @@ const FullScreen: NextPage<MoviesProps> = ({ movie }: MoviesProps) => {
             >
               Exit
             </Button>
-            {/* <CardMedia
-              height="80%"
-              component="iframe"
-              image={`https://www.youtube.com/embed/${movie.trailer}`}
-              title={`Trailer for movie.title`}
-            /> */}
-
             <iframe
               className="video"
               title={`Trailer for ${movie.trailer}`}

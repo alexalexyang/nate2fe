@@ -23,9 +23,9 @@ const StyledContainer = styled.div`
 `;
 
 const Nomurica: NextPage = () => {
-  const source = require(`./readme.md`);
+  const intro = require(`./readme.md`);
   const TmdbLogo = require(`./tmdb_logo.svg`).default;
-  const content = converter.makeHtml(source.default);
+  const content = converter.makeHtml(intro.default);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [movies, setMovies] = useState<MoviesType>(null);
