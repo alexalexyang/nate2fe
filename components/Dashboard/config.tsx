@@ -25,4 +25,11 @@ export const items: item[] = [
       "A service that surfaces films from outside hegemonic countries.",
     auth: false,
   },
+  {
+    app: "Character-limit",
+    url: "/character-limit",
+    description:
+      "Idk. I just really wanted something that counts characters with a little visual aid for myself.",
+    auth: false,
+  },
 ];
