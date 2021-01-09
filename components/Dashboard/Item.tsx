@@ -2,16 +2,32 @@ import Box from "@material-ui/core/Box";
 import Link from "next/link";
 import { NextPage } from "next";
 import PlayLottie from "../../utils/play-lottie";
-import SvgHelper from "../SvgHelper";
+import styled from "styled-components";
 import { useUser } from "../../context/user";
-// import bird from "./logos/cute-bird.json";
-
 interface IDashboard {
   app: string;
   url: string;
   description: string;
   auth: boolean;
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  background-color: #ffe6e9;
+  box-shadow: 1px 1px 5px lightgray;
+
+  :hover {
+    cursor: pointer;
+    background-color: lightyellow;
+  }
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+  }
+`;
 
 const Dashboard: NextPage<IDashboard> = ({
   app,
@@ -20,7 +36,6 @@ const Dashboard: NextPage<IDashboard> = ({
   auth,
 }: IDashboard) => {
   const { user } = useUser();
-  // let Image = require(`./logos/${app}.svg`).default;
   let Image = require(`./logos/${app}.json`);
 
   if (!user!.auth && auth) {
@@ -28,20 +43,15 @@ const Dashboard: NextPage<IDashboard> = ({
   }
 
   return (
-    <Box display="flex" m={"10px"}>
-      <Box m={"10px"}>
-        {PlayLottie(Image, 300, 300)}
-        {/* <SvgHelper fontSize={100}>
-          <Image />
-        </SvgHelper> */}
-      </Box>
-      <Box m={"10px"}>
-        <h2>
-          <Link href={`${url}`}>{app}</Link>
-        </h2>
-        <p>{description}</p>
-      </Box>
-    </Box>
+    <Link href={`${url}`}>
+      <Wrapper>
+        <Box m={"10px"}>{PlayLottie(Image, 200, 200)}</Box>
+        <Box m={"10px"}>
+          <h2>{app}</h2>
+          <p>{description}</p>
+        </Box>
+      </Wrapper>
+    </Link>
   );
 };
 

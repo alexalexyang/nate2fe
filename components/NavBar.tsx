@@ -17,7 +17,6 @@ import { NextPage } from "next";
 import PlayLottie from "../utils/play-lottie";
 import React from "react";
 import { Theme } from "@material-ui/core/styles/createMuiTheme";
-// import SvgHelper from "./SvgHelper";
 import monster from "./Dashboard/logos/green-monster.json";
 import { useUser } from "../context/user";
 
