@@ -55,6 +55,13 @@ const StyledBody = styled.div`
   }
 `;
 
+const StyledFooter = styled.div`
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid lightgray;
+  font-style: italic;
+`;
+
 const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
   if (!movies) {
     return null;
@@ -94,6 +101,16 @@ const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
             <FullScreen movie={movie} />
             <p>{movie.overview}</p>
           </StyledBody>
+          <StyledFooter>
+            This needs editing? Go to{" "}
+            <a
+              href={`https://www.themoviedb.org/movie/${movie.id}`}
+              target="__blank"
+            >
+              TMDB
+            </a>
+            .
+          </StyledFooter>
         </StyledCard>
       ))}
     </>
