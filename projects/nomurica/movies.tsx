@@ -85,8 +85,11 @@ const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
             {movie.production_countries && (
               <p>
                 Production countries:{" "}
-                {movie.production_countries.map((country) => (
-                  <span key={country}>{country}, </span>
+                {movie.production_countries.map((country, idx) => (
+                  <span key={country}>
+                    {country}
+                    {!(movie.production_countries.length === idx + 1) && ", "}
+                  </span>
                 ))}
               </p>
             )}
