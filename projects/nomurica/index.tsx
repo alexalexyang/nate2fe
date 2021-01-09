@@ -5,6 +5,7 @@ import Loading from "../../components/Loading";
 import Movies from "./movies";
 import { MoviesType } from "./types";
 import { NextPage } from "next";
+import PlayLottie from "../../utils/play-lottie";
 import SvgHelper from "../../components/SvgHelper";
 import fetch from "isomorphic-unfetch";
 import showdown from "showdown";
@@ -17,11 +18,26 @@ const converter = new showdown.Converter({
   noHeaderId: true,
 });
 
-const StyledContainer = styled.div`
+const MoviesWrapper = styled.div`
   display: flex;
   flex-flow: row wrap;
   width: 100%;
 `;
+
+const CenterChildren = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SearchButton = styled(Button)`
+  border-radius: 100px;
+  font-size: 30px;
+  color: #575757;
+`;
+
+let Search = require(`../../assets/search-file.json`);
 
 const Nomurica: NextPage = () => {
   const TmdbLogo = require(`./tmdb_logo.svg`).default;
@@ -54,36 +70,37 @@ const Nomurica: NextPage = () => {
             </SvgHelper>
           </a>
         </Container>
-        <Container>
-          <Button
-            onClick={getMovies}
-            size="large"
-            variant="contained"
-            color="primary"
-          >
-            Get Movies
-          </Button>
-        </Container>
-        {loading && (
-          <>
-            <Loading />
-            <h2>
-              {`Pardon the wait. I'm processing lots of stuff in the background.`}
-            </h2>
-          </>
-        )}
+        <CenterChildren>
+          {loading ? (
+            <>
+              <Loading />
+              <h2>{`This is you. This is how you wait.`}</h2>
+            </>
+          ) : (
+            <SearchButton
+              onClick={getMovies}
+              size="large"
+              variant="contained"
+              color="primary"
+            >
+              Get Movies
+              {PlayLottie(Search, 100, 100)}
+            </SearchButton>
+          )}
+        </CenterChildren>
+
         {movies && !loading ? (
           <>
             <Container>
               <h2>Movies</h2>
-              <StyledContainer>
+              <MoviesWrapper>
                 <Movies movies={movies} />
-              </StyledContainer>
+              </MoviesWrapper>
             </Container>
-            <Container>
+            {/* <Container>
               <h2>JSON</h2>
               <pre>{JSON.stringify(movies, null, 2)}</pre>
-            </Container>
+            </Container> */}
           </>
         ) : null}
       </Box>

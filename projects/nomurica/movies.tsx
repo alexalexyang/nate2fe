@@ -59,8 +59,10 @@ const StyledFooter = styled.div`
   margin-top: 1rem;
   padding-top: 0.5rem;
   border-top: 1px solid lightgray;
-  font-style: italic;
   text-align: right;
+  a {
+    color: #0084ff;
+  }
 `;
 
 const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
