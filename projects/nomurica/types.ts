@@ -10,3 +10,7 @@ export interface MovieType {
 }
 
 export type MoviesType = MovieType[] | null;
+export interface MoviesProps {
+  movie?: MovieType;
+  movies?: MoviesType;
+}

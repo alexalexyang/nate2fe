@@ -1,12 +1,7 @@
-import { CardMedia } from "@material-ui/core";
-import { MoviesType } from "./types";
+import FullScreen from "./full-screen";
+import { MoviesProps } from "./types";
 import { NextPage } from "next";
 import styled from "styled-components";
-
-interface MoviesProps {
-  movies: MoviesType;
-}
-
 const StyledCard = styled.div`
   margin: 1rem 0;
   padding: 1rem;
@@ -73,8 +68,10 @@ const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
       {movies!.map((movie) => (
         <StyledCard key={movie.id}>
           <StyledHeader>
-            <h3>Title: {movie.title}</h3>
-            <h3>Original title: {movie.original_title}</h3>
+            {movie.title && <h3>Title: {movie.title}</h3>}
+            {movie.original_title && (
+              <h3>Original title: {movie.original_title}</h3>
+            )}
             {movie.release_date && <p>Release date: {movie.release_date}</p>}
             {movie.production_countries && (
               <p>
@@ -93,15 +90,7 @@ const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
                 alt={`Poster for ${movie.original_title}`}
               />
             )}
-            {movie.trailer && (
-              <CardMedia
-                height="315"
-                component="iframe"
-                image={movie.trailer}
-                title={`Trailer for movie.title`}
-              />
-            )}
-
+            <FullScreen movie={movie} />
             <p>{movie.overview}</p>
           </StyledBody>
         </StyledCard>

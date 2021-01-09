@@ -57,7 +57,7 @@ const getMovieDetails = async (movie: MovieType, tmdbV3: string) => {
   const trailers = await getTrailers.json();
 
   if (trailers.results.length) {
-    const youtubeLink = `https://www.youtube.com/embed/${trailers.results[0].key}`;
+    const youtubeLink = trailers.results[0].key;
     movie.trailer = youtubeLink;
   }
 
