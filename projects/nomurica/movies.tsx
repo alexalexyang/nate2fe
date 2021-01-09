@@ -2,6 +2,7 @@ import FullScreen from "./full-screen";
 import { MoviesProps } from "./types";
 import { NextPage } from "next";
 import styled from "styled-components";
+
 const StyledCard = styled.div`
   margin: 1rem 0;
   padding: 1rem;
