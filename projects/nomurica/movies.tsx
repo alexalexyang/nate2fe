@@ -60,6 +60,7 @@ const StyledFooter = styled.div`
   padding-top: 0.5rem;
   border-top: 1px solid lightgray;
   font-style: italic;
+  text-align: right;
 `;
 
 const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
@@ -102,14 +103,12 @@ const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
             <p>{movie.overview}</p>
           </StyledBody>
           <StyledFooter>
-            This needs editing? Go to{" "}
             <a
               href={`https://www.themoviedb.org/movie/${movie.id}`}
               target="__blank"
             >
-              TMDB
+              Edit on TMDB
             </a>
-            .
           </StyledFooter>
         </StyledCard>
       ))}

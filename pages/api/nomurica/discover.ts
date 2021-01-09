@@ -71,7 +71,14 @@ const getMovieDetails = async (movie: MovieType, tmdbV3: string) => {
       (country: any) => country.name
     );
 
-    if (banned.some((country) => production_countries.includes(country))) {
+    // Return if production countries are only from banned countries.
+    if (
+      banned.some(
+        (country) =>
+          production_countries.filter((pc: string) => pc !== country).length ===
+          0
+      )
+    ) {
       return;
     }
 
