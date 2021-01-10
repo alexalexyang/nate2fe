@@ -20,8 +20,12 @@ const converter = new showdown.Converter({
 
 const MoviesWrapper = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   width: 100%;
+
+  @media (min-width: 500px) {
+    height: 2000px;
+  }
 `;
 
 const CenterChildren = styled.div`

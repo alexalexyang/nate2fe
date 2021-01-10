@@ -66,7 +66,7 @@ const getMovieDetails = async (movie: MovieType, tmdbV3: string) => {
   );
   const details = await getDetails.json();
 
-  if (details.production_countries.length) {
+  if (details.production_countries && details.production_countries.length) {
     const production_countries = details.production_countries.map(
       (country: any) => country.name
     );
@@ -91,7 +91,7 @@ const getMovie = async (
   moviesByLanguage: MoviesProps,
   originalLanguage: string
 ) => {
-  if (moviesByLanguage!.results && moviesByLanguage!.results.length) {
+  if (moviesByLanguage.results && moviesByLanguage.results.length) {
     const movies = await fetchMoviesfromRandomPage(
       parseInt(moviesByLanguage!.total_pages),
       originalLanguage
