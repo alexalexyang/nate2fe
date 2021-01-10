@@ -57,8 +57,9 @@ const getMovieDetails = async (movie: MovieType, tmdbV3: string) => {
   const trailers = await getTrailers.json();
 
   if (trailers.results.length) {
-    const youtubeLink = trailers.results[0].key;
-    movie.trailer = youtubeLink;
+    const trailerInfo = trailers.results;
+    movie.trailer = trailerInfo[0].key;
+    movie.trailerType = trailerInfo[0].site;
   }
 
   const getDetails = await fetch(

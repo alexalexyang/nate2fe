@@ -61,6 +61,11 @@ const FullScreen: NextPage<MoviesProps> = ({ movie }: MoviesProps) => {
     setMovideId(id);
   };
 
+  const trailerLink =
+    movie.trailerType === "YouTube"
+      ? `https://youtube.com/embed/${movie.trailer}`
+      : `https://player.vimeo.com/video/${movie.trailer}`;
+
   return (
     <>
       <Button
@@ -71,7 +76,7 @@ const FullScreen: NextPage<MoviesProps> = ({ movie }: MoviesProps) => {
       >
         Trailer
       </Button>
-
+      <p>{movie.trailerType}</p>
       {fullScreen && (
         <StyledFullScreen
           fullScreen={fullScreen}
@@ -90,7 +95,7 @@ const FullScreen: NextPage<MoviesProps> = ({ movie }: MoviesProps) => {
             <iframe
               className="video"
               title={`Trailer for ${movie.trailer}`}
-              src={`https://youtube.com/embed/${movie.trailer}`}
+              src={trailerLink}
               allowFullScreen
             />
           </Centered>

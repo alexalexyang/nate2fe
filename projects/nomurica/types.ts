@@ -7,6 +7,7 @@ export interface MovieType {
   poster_path: string;
   trailer: string;
   overview: string;
+  trailerType: string;
 }
 
 export type MoviesType = MovieType[] | null;
