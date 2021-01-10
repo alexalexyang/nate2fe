@@ -22,8 +22,9 @@ const MoviesWrapper = styled.div`
   display: flex;
   flex-flow: column wrap;
   width: 100%;
+  height: 100%;
 
-  @media (min-width: 500px) {
+  @media (min-width: 750px) {
     height: 2000px;
   }
 `;

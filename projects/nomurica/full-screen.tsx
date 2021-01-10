@@ -76,7 +76,6 @@ const FullScreen: NextPage<MoviesProps> = ({ movie }: MoviesProps) => {
       >
         Trailer
       </Button>
-      <p>{movie.trailerType}</p>
       {fullScreen && (
         <StyledFullScreen
           fullScreen={fullScreen}
