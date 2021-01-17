@@ -1,3 +1,3 @@
-import Swipe from "../components/swipe";
+import Swipe from "../components/SwipeBox";
 
 export default Swipe;
