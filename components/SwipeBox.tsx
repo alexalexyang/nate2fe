@@ -28,17 +28,13 @@ const StyledBox = styled.div<{ data?: SwipeProps }>`
   ${(props) =>
     props.data &&
     css`
-      transform: translateX(${props.data.deltaX ?? 0}px)
-        translateY(${props.data.deltaY ?? 0}px)
+      transform: translate3d(
+          ${props.data.deltaX ?? 0}px,
+          ${props.data.deltaY ?? 0}px,
+          0
+        )
         rotate(${props.data.deltaX / 20 ?? 0}deg);
-
-      ${props.data.velocity > 2.2 &&
-      css`
-        background-color: pink;
-        transition: all 1s;
-        transform: translateX(${props.data.deltaX * 2}px)
-          translateY(${props.data.deltaY * 2}px);
-      `}
+      transition: all 0.08s;
     `}
 `;
 
@@ -49,10 +45,16 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({ children }: SwipeBoxProps) => {
     onSwiping: (eventData) => {
       setData(eventData);
     },
+    onSwiped: (eventData) => {
+      eventData.deltaX = 0;
+      eventData.deltaY = 0;
+      // console.log("Swiped: ", eventData.deltaX);
+      setData(eventData);
+    },
     preventDefaultTouchmoveEvent: true,
   });
 
-  // console.log(data && data.velocity);
+  data && console.log("End: ", data.deltaX);
 
   return (
     <StyledBox {...handlers} data={data}>
