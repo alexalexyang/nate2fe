@@ -22,8 +22,6 @@ interface SwipeProps {
 }
 
 const StyledBox = styled.div<{ data?: SwipeProps }>`
-  border: 1px solid pink;
-  background-color: blueviolet;
   position: absolute;
   width: inherit;
   height: inherit;
@@ -99,7 +97,14 @@ const StyledDiv = styled.div`
   width: 20%;
 
   * {
+    border: 1px solid pink;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
+    font-size: 20rem;
   }
 `;
 
