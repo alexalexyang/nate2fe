@@ -1,7 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 
+import Loading from "../components/Loading";
+import MovieCard from "../projects/nomurica/movie-card";
+import { MoviesType } from "../projects/nomurica/types";
 import { NextPage } from "next";
+import fetch from "isomorphic-unfetch";
 import { useSwipeable } from "react-swipeable";
 
 interface SwipeBoxProps {
@@ -97,19 +101,31 @@ const StyledDiv = styled.div`
   width: 20%;
 
   * {
-    border: 1px solid pink;
-    background-color: blueviolet;
-    display: flex;
+    width: 30rem;
+    /* border: 1px solid pink; */
+    /* background-color: blueviolet; */
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    font-size: 20rem;
+    font-size: 20rem; */
   }
 `;
 
 const DeleteMe: React.FC = () => {
-  const MyCards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const [movies, setMovies] = useState<MoviesType>();
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const movies = await (
+        await fetch(`/api/nomurica/discover?genre=sciencefiction`)
+      ).json();
+      setMovies(movies);
+    };
+
+    fetchMovies();
+  }, []);
 
   const yesFunc = () => {
     console.log("I yell YES!");
@@ -119,18 +135,20 @@ const DeleteMe: React.FC = () => {
     console.log("I scream NO!");
   };
 
-  const renderCards = MyCards.map((card, idx) => (
-    <SwipeBox key={idx} count={idx} yesFunc={yesFunc} noFunc={noFunc}>
-      {card}
-    </SwipeBox>
-  ));
+  const renderCards =
+    movies &&
+    movies.map((movie, idx) => (
+      <SwipeBox key={idx} count={idx} yesFunc={yesFunc} noFunc={noFunc}>
+        <MovieCard movie={movie} />
+      </SwipeBox>
+    ));
 
   return (
     <Wrapper>
       <div>
         <h1>Swipe test</h1>
       </div>
-      <StyledDiv>{renderCards}</StyledDiv>
+      <StyledDiv>{movies ? renderCards : <Loading />}</StyledDiv>
     </Wrapper>
   );
 };
