@@ -6,6 +6,9 @@ import { useSwipeable } from "react-swipeable";
 
 interface SwipeBoxProps {
   children: React.ReactNode;
+  yesFunc: any;
+  noFunc: any;
+  count: any;
 }
 
 interface SwipeProps {
@@ -38,29 +41,42 @@ const StyledBox = styled.div<{ data?: SwipeProps }>`
     `}
 `;
 
-const SwipeBox: NextPage<SwipeBoxProps> = ({ children }: SwipeBoxProps) => {
+const SwipeBox: NextPage<SwipeBoxProps> = ({
+  yesFunc,
+  noFunc,
+  children,
+  count,
+}: SwipeBoxProps) => {
   const [data, setData] = useState<SwipeProps>();
+  const [show, setShow] = useState<boolean>(true);
 
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
       setData(eventData);
     },
     onSwiped: (eventData) => {
+      const { velocity, absX, dir } = eventData;
+      if ((velocity > 2.5 || absX > 500) && dir === "Right") {
+        // YES!
+        yesFunc();
+        return setShow(false);
+      }
+      // NO!
+      noFunc();
       eventData.deltaX = 0;
       eventData.deltaY = 0;
-      // console.log("Swiped: ", eventData.deltaX);
       setData(eventData);
     },
     preventDefaultTouchmoveEvent: true,
   });
 
-  data && console.log("End: ", data.deltaX);
+  // data && console.log("End: ", data);
 
-  return (
+  return show ? (
     <StyledBox {...handlers} data={data}>
       {children}
     </StyledBox>
-  );
+  ) : null;
 };
 
 // Example of component using the SwipeBox component above.
@@ -90,8 +106,18 @@ const StyledDiv = styled.div`
 const DeleteMe: React.FC = () => {
   const MyCards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+  const yesFunc = () => {
+    console.log("I yell YES!");
+  };
+
+  const noFunc = () => {
+    console.log("I scream NO!");
+  };
+
   const renderCards = MyCards.map((card, idx) => (
-    <SwipeBox key={idx}>{card}</SwipeBox>
+    <SwipeBox key={idx} count={idx} yesFunc={yesFunc} noFunc={noFunc}>
+      {card}
+    </SwipeBox>
   ));
 
   return (
