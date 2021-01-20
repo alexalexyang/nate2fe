@@ -58,16 +58,21 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
     },
     onSwiped: (eventData) => {
       const { velocity, absX, dir } = eventData;
-      if ((velocity > 2.5 || absX > 500) && dir === "Right") {
+
+      if (velocity < 2.5 || absX < 500) {
+        eventData.deltaX = 0;
+        eventData.deltaY = 0;
+        return setData(eventData);
+      }
+
+      if (dir === "Right") {
         // YES!
         yesFunc();
         return setShow(false);
       }
       // NO!
       noFunc();
-      eventData.deltaX = 0;
-      eventData.deltaY = 0;
-      setData(eventData);
+      return setShow(false);
     },
     preventDefaultTouchmoveEvent: true,
   });
@@ -93,12 +98,13 @@ const Wrapper = styled.div`
 `;
 
 const StyledDiv = styled.div`
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 50vh;
-  width: 20%;
+  width: 100%;
 
   * {
     width: 30rem;
