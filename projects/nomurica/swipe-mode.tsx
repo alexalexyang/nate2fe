@@ -65,9 +65,6 @@ const SwipeMode: NextPage = () => {
 
   return (
     <Wrapper>
-      <div>
-        <h1>Swipe test</h1>
-      </div>
       <StyledDiv>{movies ? renderCards : <Loading />}</StyledDiv>
     </Wrapper>
   );
