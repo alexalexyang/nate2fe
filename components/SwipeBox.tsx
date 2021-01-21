@@ -8,7 +8,7 @@ interface SwipeBoxProps {
   children: React.ReactNode;
   yesFunc: any;
   noFunc: any;
-  count: any;
+  count?: any;
 }
 
 interface SwipeProps {
@@ -46,7 +46,6 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
   yesFunc,
   noFunc,
   children,
-  count,
 }: SwipeBoxProps) => {
   const [data, setData] = useState<SwipeProps>();
   const [show, setShow] = useState<boolean>(true);
