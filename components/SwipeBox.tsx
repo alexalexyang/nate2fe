@@ -57,7 +57,7 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
     onSwiped: (eventData) => {
       const { velocity, absX, dir } = eventData;
 
-      if (velocity < 2.5 || absX < 500) {
+      if (velocity < 2 || absX < 300) {
         eventData.deltaX = 0;
         eventData.deltaY = 0;
         return setData(eventData);

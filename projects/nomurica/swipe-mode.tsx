@@ -23,8 +23,13 @@ const StyledDiv = styled.div`
   align-items: center;
 
   > * {
-    width: 30rem;
-    height: 40rem;
+    width: 95%;
+    height: 70%;
+
+    @media (min-width: 750px) {
+      width: 30rem;
+      height: 40rem;
+    }
   }
 `;
 
