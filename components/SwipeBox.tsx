@@ -57,7 +57,7 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
     onSwiped: (eventData) => {
       const { velocity, absX, dir } = eventData;
 
-      if (velocity > 1.5 || absX > 60) {
+      if (velocity > 2 || absX > 100) {
         if (dir === "Right") {
           // YES!
           yesFunc();
