@@ -26,6 +26,12 @@ const MoviesWrapper = styled.div`
 
   @media (min-width: 750px) {
     height: 2000px;
+
+    > * {
+      width: 45%;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
   }
 `;
 

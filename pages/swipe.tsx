@@ -1,3 +1,3 @@
-import Swipe from "../components/SwipeBox";
+import Swipe from "../projects/nomurica/swipe-mode";
 
 export default Swipe;

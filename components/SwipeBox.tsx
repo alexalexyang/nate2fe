@@ -27,8 +27,11 @@ interface SwipeProps {
 
 const StyledBox = styled.div<{ data?: SwipeProps }>`
   position: absolute;
-  width: inherit;
-  height: inherit;
+
+  > * {
+    width: 100%;
+    height: 100%;
+  }
 
   ${(props) =>
     props.data &&
@@ -86,77 +89,4 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
   ) : null;
 };
 
-// Example of component using the SwipeBox component above.
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-`;
-
-const StyledDiv = styled.div`
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  width: 100%;
-
-  * {
-    width: 30rem;
-    /* border: 1px solid pink; */
-    /* background-color: blueviolet; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    font-size: 20rem; */
-  }
-`;
-
-const DeleteMe: React.FC = () => {
-  const [movies, setMovies] = useState<MoviesType>();
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const movies = await (
-        await fetch(`/api/nomurica/discover?genre=sciencefiction`)
-      ).json();
-      setMovies(movies);
-    };
-
-    fetchMovies();
-  }, []);
-
-  const yesFunc = () => {
-    console.log("I yell YES!");
-  };
-
-  const noFunc = () => {
-    console.log("I scream NO!");
-  };
-
-  const renderCards =
-    movies &&
-    movies.map((movie, idx) => (
-      <SwipeBox key={idx} count={idx} yesFunc={yesFunc} noFunc={noFunc}>
-        <MovieCard movie={movie} />
-      </SwipeBox>
-    ));
-
-  return (
-    <Wrapper>
-      <div>
-        <h1>Swipe test</h1>
-      </div>
-      <StyledDiv>{movies ? renderCards : <Loading />}</StyledDiv>
-    </Wrapper>
-  );
-};
-
-export default DeleteMe;
+export default SwipeBox;

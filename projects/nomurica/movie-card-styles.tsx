@@ -7,25 +7,8 @@ type Component = StyledComponent<"div", {}> & {
 };
 
 export const StyledCard = styled.div`
-  margin: 1rem 0;
-  padding: 1rem;
   width: 100%;
-  max-height: 1500px;
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: 1px 1px 5px lightgray;
-
-  :hover {
-    background-color: lightgoldenrodyellow;
-  }
-
-  @media (min-width: 500px) {
-    margin: 1rem;
-  }
-
-  @media (min-width: 750px) {
-    width: 45%;
-  }
+  height: 100%;
 ` as Component;
 
 StyledCard.Header = styled.div`
