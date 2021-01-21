@@ -1,11 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
-import Loading from "../components/Loading";
-import MovieCard from "../projects/nomurica/movie-card";
-import { MoviesType } from "../projects/nomurica/types";
 import { NextPage } from "next";
-import fetch from "isomorphic-unfetch";
 import { useSwipeable } from "react-swipeable";
 
 interface SwipeBoxProps {
