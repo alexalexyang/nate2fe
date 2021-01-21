@@ -57,21 +57,20 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
     onSwiped: (eventData) => {
       const { velocity, absX, dir } = eventData;
 
-      // Desktop ideal: (velocity < 2.5 || absX < 500)
-      if (velocity < 1.5 || absX < 60) {
-        eventData.deltaX = 0;
-        eventData.deltaY = 0;
-        return setData(eventData);
-      }
-
-      if (dir === "Right") {
-        // YES!
-        yesFunc();
+      if (velocity > 1.5 || absX > 60) {
+        if (dir === "Right") {
+          // YES!
+          yesFunc();
+          return setShow(false);
+        }
+        // NO!
+        noFunc();
         return setShow(false);
       }
-      // NO!
-      noFunc();
-      return setShow(false);
+
+      eventData.deltaX = 0;
+      eventData.deltaY = 0;
+      return setData(eventData);
     },
     preventDefaultTouchmoveEvent: true,
   });
