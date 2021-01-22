@@ -67,16 +67,22 @@ const noFunc = (state: MoviesProps) => {
 const SwipeMode: NextPage = () => {
   const [movies, setMovies] = useState<MoviesType>(null);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const movies = await (
-        await fetch(`/api/nomurica/discover?genre=sciencefiction`)
-      ).json();
-      setMovies(movies);
-    };
+  const fetchMovies = async () => {
+    const movies = await (
+      await fetch(`/api/nomurica/discover?genre=sciencefiction`)
+    ).json();
+    setMovies(movies);
+  };
 
+  useEffect(() => {
     fetchMovies();
   }, []);
+
+  useEffect(() => {
+    if (movies && movies.length === 0) {
+      fetchMovies();
+    }
+  }, [movies]);
 
   const renderCards =
     movies &&
@@ -93,7 +99,9 @@ const SwipeMode: NextPage = () => {
 
   return (
     <Wrapper>
-      <StyledDiv>{movies ? renderCards : <Loading />}</StyledDiv>
+      <StyledDiv>
+        {movies && movies.length ? renderCards : <Loading />}
+      </StyledDiv>
       <ButtonsWrapper>
         <YesNoButton func={() => noFunc({ movies, setMovies })} text="No" />{" "}
         <YesNoButton func={() => yesFunc({ movies, setMovies })} text="Yes" />
