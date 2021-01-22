@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 import Loading from "../../components/Loading";
 import MovieCard from "./movie-card";
 import { MoviesType } from "./types";
 import { NextPage } from "next";
 import SwipeBox from "../../components/SwipeBox";
+import YesNoButton from "./yes-no-button";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  height: 85vh;
 `;
 
 const StyledDiv = styled.div`
@@ -33,8 +34,38 @@ const StyledDiv = styled.div`
   }
 `;
 
+const ButtonsWrapper = styled.div`
+  display: flex;
+  > * {
+    margin: 0 0.5rem;
+  }
+`;
+
+interface MoviesProps {
+  movies: MoviesType;
+  setMovies: Dispatch<SetStateAction<MoviesType>>;
+}
+
+const yesFunc = (state: MoviesProps) => {
+  const { movies } = state;
+  if (!movies) {
+    return;
+  }
+  movies.pop();
+  state.setMovies([...movies]);
+};
+
+const noFunc = (state: MoviesProps) => {
+  const { movies } = state;
+  if (!movies) {
+    return;
+  }
+  movies.pop();
+  state.setMovies([...movies]);
+};
+
 const SwipeMode: NextPage = () => {
-  const [movies, setMovies] = useState<MoviesType>();
+  const [movies, setMovies] = useState<MoviesType>(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -47,18 +78,15 @@ const SwipeMode: NextPage = () => {
     fetchMovies();
   }, []);
 
-  const yesFunc = () => {
-    console.log("YES!");
-  };
-
-  const noFunc = () => {
-    console.log("NO!");
-  };
-
   const renderCards =
     movies &&
     movies.map((movie, idx) => (
-      <SwipeBox key={idx} count={idx} yesFunc={yesFunc} noFunc={noFunc}>
+      <SwipeBox
+        key={idx}
+        yesFunc={yesFunc}
+        noFunc={noFunc}
+        state={{ movies, setMovies }}
+      >
         <MovieCard movie={movie} />
       </SwipeBox>
     ));
@@ -66,6 +94,10 @@ const SwipeMode: NextPage = () => {
   return (
     <Wrapper>
       <StyledDiv>{movies ? renderCards : <Loading />}</StyledDiv>
+      <ButtonsWrapper>
+        <YesNoButton func={() => noFunc({ movies, setMovies })} text="No" />{" "}
+        <YesNoButton func={() => yesFunc({ movies, setMovies })} text="Yes" />
+      </ButtonsWrapper>
     </Wrapper>
   );
 };

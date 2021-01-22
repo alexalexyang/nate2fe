@@ -8,7 +8,7 @@ interface SwipeBoxProps {
   children: React.ReactNode;
   yesFunc: any;
   noFunc: any;
-  count?: any;
+  state: any;
 }
 
 interface SwipeProps {
@@ -45,6 +45,7 @@ const StyledBox = styled.div<{ data?: SwipeProps }>`
 const SwipeBox: NextPage<SwipeBoxProps> = ({
   yesFunc,
   noFunc,
+  state,
   children,
 }: SwipeBoxProps) => {
   const [data, setData] = useState<SwipeProps>();
@@ -58,14 +59,10 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
       const { velocity, absX, dir } = eventData;
 
       if (velocity > 1 || absX > 200) {
-        if (dir === "Right") {
-          // YES!
-          yesFunc();
-          return setShow(false);
-        }
-        // NO!
-        noFunc();
-        return setShow(false);
+        dir === "Right" ? yesFunc(state) : noFunc(state);
+        eventData.deltaX = eventData.deltaX * 2;
+        setData(eventData);
+        return setTimeout(() => setShow(false), 200);
       }
 
       eventData.deltaX = 0;
@@ -73,9 +70,8 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
       return setData(eventData);
     },
     preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
   });
-
-  // data && console.log("End: ", data);
 
   return show ? (
     <StyledBox {...handlers} data={data}>
