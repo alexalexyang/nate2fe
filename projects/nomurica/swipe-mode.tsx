@@ -46,11 +46,14 @@ interface MoviesProps {
   setMovies: Dispatch<SetStateAction<MoviesType>>;
 }
 
-const yesFunc = (state: MoviesProps) => {
+const yesFunc = async (state: MoviesProps) => {
   const { movies } = state;
   if (!movies) {
     return;
   }
+
+  fetch(`/api/db/movies-db?movie_id=${movies[movies.length - 1].id}`);
+
   movies.pop();
   state.setMovies([...movies]);
 };
