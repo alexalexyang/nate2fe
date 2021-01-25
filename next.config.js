@@ -8,6 +8,7 @@ module.exports = {
     AUTH0_LOGOUT_REDIRECT_URI: process.env.AUTH0_LOGOUT_REDIRECT_URI,
     AUTH0_SESSION_COOKIE_SECRET: process.env.AUTH0_SESSION_COOKIE_SECRET,
     TMDB_V3: process.env.TMDB_V3,
+    MONGODB_PW: process.env.MONGODB_PW,
   },
   publicRuntimeConfig: {
     APP_NAME: process.env.APP_NAME,

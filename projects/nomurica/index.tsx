@@ -62,7 +62,7 @@ const Nomurica: NextPage = () => {
   const getMovies = async () => {
     setLoading(true);
     const movies = await (
-      await fetch(`/api/nomurica/discover?genre=sciencefiction`)
+      await fetch(`/api/nomurica/discover?numOfMovies=6`)
     ).json();
     setMovies(movies);
     setLoading(false);

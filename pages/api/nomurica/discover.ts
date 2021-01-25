@@ -109,11 +109,9 @@ const getMovie = async (
   }
 };
 
-const getMovies = async (languages: LangType) => {
+const getMovies = async (languages: LangType, numOfMovies: number) => {
   let usedLanguages: string[] = [];
   let movies = [];
-
-  let numOfMovies = 6;
 
   while (numOfMovies != 0) {
     const code = pickRandomLanguage(languages);
@@ -145,9 +143,10 @@ export default async function discoverMovies(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  // const { genre } = req.query;
+  const { numOfMovies } = req.query;
+
   try {
-    const movies = await getMovies(languages);
+    const movies = await getMovies(languages, parseInt(<string>numOfMovies));
 
     res.status(200).json(movies.filter((movie) => movie != null));
   } catch (error) {

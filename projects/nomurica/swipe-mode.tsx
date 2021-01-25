@@ -52,7 +52,11 @@ const yesFunc = async (state: MoviesProps) => {
     return;
   }
 
-  fetch(`/api/db/movies-db?movie_id=${movies[movies.length - 1].id}`);
+  const currentMovie = movies[movies.length - 1];
+
+  fetch(
+    `/api/db/movies-db?movie_id=${currentMovie.id}&movie_title=${currentMovie.title}`
+  );
 
   movies.pop();
   state.setMovies([...movies]);
@@ -69,21 +73,36 @@ const noFunc = (state: MoviesProps) => {
 
 const SwipeMode: NextPage = () => {
   const [movies, setMovies] = useState<MoviesType>(null);
+  const [fetching, setFetching] = useState<boolean>(false);
 
-  const fetchMovies = async () => {
-    const movies = await (
-      await fetch(`/api/nomurica/discover?genre=sciencefiction`)
+  const fetchMovies = async (numOfMovies: number) => {
+    const fetchNum = movies && movies.length ? numOfMovies - movies.length : 10;
+
+    if (fetching) {
+      return;
+    }
+    setFetching(true);
+    const fetchedMovies = await (
+      await fetch(`/api/nomurica/discover?numOfMovies=${fetchNum}`)
     ).json();
-    setMovies(movies);
+
+    fetchedMovies && setFetching(false);
+
+    movies &&
+      movies.length &&
+      movies.forEach((film) => fetchedMovies.push(film));
+
+    // Strange behaviour here where if we leave the last two cards unswiped, they will be pushed to the second-last places in the new array.
+    setMovies(fetchedMovies);
   };
 
   useEffect(() => {
-    fetchMovies();
+    fetchMovies(10);
   }, []);
 
   useEffect(() => {
-    if (movies && movies.length === 0) {
-      fetchMovies();
+    if (movies && movies.length < 6) {
+      fetchMovies(10);
     }
   }, [movies]);
 
@@ -105,10 +124,12 @@ const SwipeMode: NextPage = () => {
       <StyledDiv>
         {movies && movies.length ? renderCards : <Loading />}
       </StyledDiv>
-      <ButtonsWrapper>
-        <YesNoButton func={() => noFunc({ movies, setMovies })} text="No" />{" "}
-        <YesNoButton func={() => yesFunc({ movies, setMovies })} text="Yes" />
-      </ButtonsWrapper>
+      {movies && movies.length && (
+        <ButtonsWrapper>
+          <YesNoButton func={() => noFunc({ movies, setMovies })} text="No" />{" "}
+          <YesNoButton func={() => yesFunc({ movies, setMovies })} text="Yes" />
+        </ButtonsWrapper>
+      )}
     </Wrapper>
   );
 };

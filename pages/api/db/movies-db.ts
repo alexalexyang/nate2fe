@@ -1,31 +1,22 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { MoviesModel } from "./movies-model";
-import { connectDB } from "./db-connection";
+import { moviesCollection } from "./db-connection";
 
 const moviesToDB = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    connectDB();
-    const { movie_id } = req.query;
+    const { movie_id, movie_title } = req.query;
 
-    MoviesModel.findOne(
-      { tmdb_id: movie_id },
-      (err: Error, foundMovie: any) => {
-        if (err) {
-          throw err;
-        }
-
-        if (!foundMovie) {
-          return MoviesModel.create({ tmdb_id: movie_id, likes: 1 });
-        }
-
-        foundMovie.likes = foundMovie.likes + 1;
-
-        foundMovie.save((err: Error) => {
-          if (err) {
-            throw err;
-          }
-        });
+    const moviesConn = await moviesCollection();
+    moviesConn.updateOne(
+      {
+        tmdb_id: movie_id,
+      },
+      {
+        $set: { tmdb_id: movie_id, title: movie_title },
+        $inc: { likes: 1 },
+      },
+      {
+        upsert: true,
       }
     );
 
@@ -33,7 +24,7 @@ const moviesToDB = async (req: NextApiRequest, res: NextApiResponse) => {
       success: true,
     });
   } catch (error) {
-    console.log("ERROR");
+    console.log(error);
     res.status(error.status || 500).json({
       code: error.code,
       error: error.message,
