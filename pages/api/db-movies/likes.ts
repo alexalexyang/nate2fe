@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { moviesCollection } from "./db-connection";
 
-const moviesToDB = async (req: NextApiRequest, res: NextApiResponse) => {
+const likes = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { movie_id, movie_title } = req.query;
 
@@ -32,4 +32,4 @@ const moviesToDB = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default moviesToDB;
+export default likes;

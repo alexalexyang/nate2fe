@@ -55,7 +55,7 @@ const yesFunc = async (state: MoviesProps) => {
   const currentMovie = movies[movies.length - 1];
 
   fetch(
-    `/api/db/movies-db?movie_id=${currentMovie.id}&movie_title=${currentMovie.title}`
+    `/api/db-movies/likes?movie_id=${currentMovie.id}&movie_title=${currentMovie.title}`
   );
 
   movies.pop();
