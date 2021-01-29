@@ -2,13 +2,13 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 import Loading from "../../components/Loading";
 import MovieCard from "./movie-card";
-import { MoviesType } from "./types";
+import { MoviePopularity } from "./types";
 import { NextPage } from "next";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
 
 const Popularity: NextPage = () => {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState<MoviePopularity[]>();
   const getMovies = async () => {
     const fetched = await (await fetch(`/api/db-movies/popularity`)).json();
     console.log(fetched.movies);

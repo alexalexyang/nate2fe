@@ -15,3 +15,9 @@ export interface MoviesProps {
   movie?: MovieType;
   movies?: MoviesType;
 }
+
+export interface MoviePopularity {
+  tmdb_id: string;
+  title: string;
+  likes: number;
+}
