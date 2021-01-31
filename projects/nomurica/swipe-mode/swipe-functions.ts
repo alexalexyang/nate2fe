@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
+import { MovieType, SetProps } from "../types";
 
-import { SetProps } from "./data-types";
 import fetch from "isomorphic-unfetch";
 
 interface MoviesProps {
-  movies: SetProps;
-  setMovies: Dispatch<SetStateAction<SetProps>>;
+  movies: SetProps<MovieType>;
+  setMovies: Dispatch<SetStateAction<SetProps<MovieType>>>;
 }
 
 export const yesFunc = async (state: MoviesProps) => {
@@ -26,6 +26,7 @@ export const yesFunc = async (state: MoviesProps) => {
 
 export const noFunc = (state: MoviesProps) => {
   const { movies, setMovies } = state;
+  console.log(movies);
   if (!movies.data || !movies.data.length) {
     return;
   }

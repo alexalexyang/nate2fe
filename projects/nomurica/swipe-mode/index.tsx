@@ -1,5 +1,5 @@
+import { MovieType, RequestStatus, SetProps } from "../types";
 import React, { useEffect, useState } from "react";
-import { RequestStatus, SetProps } from "./data-types";
 import { StyledDiv, Wrapper } from "./swipe-mode-styles";
 import { fetchIfEmpty, switchSet } from "./helpers";
 import { setSwitchButtons, setSwitchCards } from "./content-components";
@@ -14,15 +14,16 @@ const initialState = {
 };
 
 const SwipeMode: NextPage = () => {
-  const [set1, setSet1] = useState<SetProps>(initialState);
-  const [set2, setSet2] = useState<SetProps>(initialState);
+  const fetchUrl = `/api/nomurica/discover?numOfMovies=${5}`;
+  const [set1, setSet1] = useState<SetProps<MovieType>>(initialState);
+  const [set2, setSet2] = useState<SetProps<MovieType>>(initialState);
   const [displaySet, setDisplaySet] = useState<string>("set1");
 
   useEffect(() => {
-    fetchIfEmpty(set1, setSet1);
-    fetchIfEmpty(set2, setSet2);
+    fetchIfEmpty<MovieType>(set1, setSet1, fetchUrl);
+    fetchIfEmpty<MovieType>(set2, setSet2, fetchUrl);
 
-    switchSet(set1, set2, setDisplaySet);
+    switchSet<MovieType>(set1, set2, setDisplaySet);
   }, [set1, set2]);
 
   return (

@@ -57,7 +57,7 @@ const Nomurica: NextPage = () => {
   const content = converter.makeHtml(intro.default);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [movies, setMovies] = useState<MoviesType>(null);
+  const [movies, setMovies] = useState<MoviesType>();
 
   const getMovies = async () => {
     setLoading(true);
@@ -108,10 +108,6 @@ const Nomurica: NextPage = () => {
                 <Movies movies={movies} />
               </MoviesWrapper>
             </Container>
-            {/* <Container>
-              <h2>JSON</h2>
-              <pre>{JSON.stringify(movies, null, 2)}</pre>
-            </Container> */}
           </>
         ) : null}
       </Box>

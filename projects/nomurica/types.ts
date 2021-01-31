@@ -10,7 +10,8 @@ export interface MovieType {
   trailerType: string;
 }
 
-export type MoviesType = MovieType[] | null;
+export type MoviesType = MovieType[];
+
 export interface MoviesProps {
   movie?: MovieType;
   movies?: MoviesType;
@@ -20,4 +21,18 @@ export interface MoviePopularity {
   tmdb_id: string;
   title: string;
   likes: number;
+}
+
+export enum RequestStatus {
+  Pending = "pending",
+  Success = "success",
+  Error = "error",
+  Idle = "idle",
+}
+
+export interface SetProps<T> {
+  status: RequestStatus;
+  data?: T[];
+  message?: string;
+  fetchStatus: RequestStatus;
 }

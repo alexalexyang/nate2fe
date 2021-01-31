@@ -1,27 +1,25 @@
 import { Dispatch, SetStateAction } from "react";
-import { RequestStatus, SetProps } from "./data-types";
+import { RequestStatus, SetProps } from "../types";
 
 import fetch from "isomorphic-unfetch";
 
-const fetchSet = async (
-  set: SetProps,
-  setSet: Dispatch<SetStateAction<SetProps>>
+const fetchSet = async <T>(
+  set: SetProps<T>,
+  setSet: Dispatch<SetStateAction<SetProps<T>>>,
+  url: string
 ) => {
-  const fetchedMovies = await (
-    await fetch(`/api/nomurica/discover?numOfMovies=${5}`)
-  ).json();
-
   setSet({
     ...set,
-    data: fetchedMovies,
+    data: await (await fetch(url)).json(),
     status: RequestStatus.Success,
     fetchStatus: RequestStatus.Success,
   });
 };
 
-export const fetchIfEmpty = (
-  set: SetProps,
-  setSet: Dispatch<SetStateAction<SetProps>>
+export const fetchIfEmpty = <T>(
+  set: SetProps<T>,
+  setSet: Dispatch<SetStateAction<SetProps<T>>>,
+  url: string
 ) => {
   const isEmpty = !set.data || !set.data.length;
 
@@ -31,13 +29,13 @@ export const fetchIfEmpty = (
       status: RequestStatus.Pending,
       fetchStatus: RequestStatus.Pending,
     });
-    fetchSet(set, setSet);
+    fetchSet<T>(set, setSet, url);
   }
 };
 
-export const switchSet = (
-  set1: SetProps,
-  set2: SetProps,
+export const switchSet = <T>(
+  set1: SetProps<T>,
+  set2: SetProps<T>,
   setDisplaySet: Dispatch<SetStateAction<string>>
 ) => {
   const isEmptySet1 = !set1.data || !set1.data.length;
