@@ -41,7 +41,7 @@ const SwipeMode: NextPage = () => {
     setSet: Dispatch<SetStateAction<SetProps>>
   ) => {
     const fetchedMovies = await (
-      await fetch(`/api/nomurica/discover?numOfMovies=${10}`)
+      await fetch(`/api/nomurica/discover?numOfMovies=${5}`)
     ).json();
 
     setSet({
@@ -87,7 +87,7 @@ const SwipeMode: NextPage = () => {
 
   useEffect(() => {
     fetchIfEmpty(set1, setSet1);
-    fetchIfEmpty(set2, setSet2);
+    // fetchIfEmpty(set2, setSet2);
 
     switchSet();
   }, [set1, set2]);
@@ -139,7 +139,7 @@ const SwipeMode: NextPage = () => {
     if (displaySet == "set2" && set2 && set2.data && set2.data.length) {
       return Buttons(set2, setSet2);
     }
-    return <Loading />;
+    return null;
   };
 
   return (

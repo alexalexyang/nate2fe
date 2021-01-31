@@ -19,6 +19,7 @@ export interface SwipeProps {
   deltaY: number;
   dir: string;
   velocity: number;
+  exceedThreshold?: boolean;
 }
 
 const SwipeBox: NextPage<SwipeBoxProps> = ({
@@ -39,14 +40,14 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
 
       if (velocity > 1 || absX > 200) {
         dir === "Right" ? yesFunc(state) : noFunc(state);
-        eventData.deltaX = eventData.deltaX * 2;
-        setData(eventData);
-        return setTimeout(() => setShow(false), 200);
+        eventData.deltaX = eventData.deltaX * 5;
+        setData({ ...eventData, exceedThreshold: true });
+        return setTimeout(() => setShow(false), 400);
       }
 
       eventData.deltaX = 0;
       eventData.deltaY = 0;
-      return setData(eventData);
+      return setData({ ...eventData, exceedThreshold: false });
     },
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,

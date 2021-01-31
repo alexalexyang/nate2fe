@@ -10,19 +10,18 @@ interface MoviesProps {
 
 export const yesFunc = async (state: MoviesProps) => {
   const { movies, setMovies } = state;
-  console.log(movies);
   if (!movies.data || !movies.data.length) {
     return;
   }
 
-  const currentMovie = movies.data.pop();
-
-  currentMovie &&
-    fetch(
-      `/api/db-movies/likes?movie_id=${currentMovie.id}&movie_title=${currentMovie.title}`
-    );
-
-  setMovies({ ...movies });
+  setTimeout(() => {
+    const currentMovie = movies.data && movies.data.pop();
+    currentMovie &&
+      fetch(
+        `/api/db-movies/likes?movie_id=${currentMovie.id}&movie_title=${currentMovie.title}`
+      );
+    setMovies({ ...movies });
+  }, 300);
 };
 
 export const noFunc = (state: MoviesProps) => {
@@ -31,6 +30,8 @@ export const noFunc = (state: MoviesProps) => {
     return;
   }
 
-  movies.data.pop();
-  setMovies({ ...movies });
+  setTimeout(() => {
+    movies.data && movies.data.pop();
+    setMovies({ ...movies });
+  }, 300);
 };
