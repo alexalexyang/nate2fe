@@ -10,6 +10,7 @@ interface MoviesProps {
 
 export const yesFunc = async (state: MoviesProps) => {
   const { movies, setMovies } = state;
+  console.log(movies);
   if (!movies.data || !movies.data.length) {
     return;
   }

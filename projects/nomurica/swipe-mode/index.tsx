@@ -9,11 +9,6 @@ import { NextPage } from "next";
 import SwipeBox from "../../../components/SwipeBox";
 import YesNoButton from "../yes-no-button";
 import fetch from "isomorphic-unfetch";
-import styled from "styled-components";
-
-const MyDiv = styled.div`
-  display: flex;
-`;
 
 enum RequestStatus {
   Pending = "pending",
@@ -59,14 +54,11 @@ const SwipeMode: NextPage = () => {
 
   const fetchIfEmpty = (
     set: SetProps,
-    setSet: Dispatch<SetStateAction<SetProps>>,
-    whichSet: string
+    setSet: Dispatch<SetStateAction<SetProps>>
   ) => {
     const isEmpty = !set.data || !set.data.length;
 
     if (isEmpty && set.fetchStatus !== RequestStatus.Pending) {
-      console.log(`${whichSet} empty`);
-
       setSet({
         ...set,
         status: RequestStatus.Pending,
@@ -94,24 +86,25 @@ const SwipeMode: NextPage = () => {
   };
 
   useEffect(() => {
-    fetchIfEmpty(set1, setSet1, `set1`);
-    fetchIfEmpty(set2, setSet2, `set2`);
+    fetchIfEmpty(set1, setSet1);
+    fetchIfEmpty(set2, setSet2);
 
     switchSet();
   }, [set1, set2]);
 
   const renderCards = (
-    movies: MoviesType,
+    movies: SetProps,
     setMovies: Dispatch<SetStateAction<SetProps>>
   ) => (
     <>
       {movies &&
-        movies.map((movie: MovieType, idx: number) => (
+        movies.data &&
+        movies.data.map((movie: MovieType, idx: number) => (
           <SwipeBox
             key={idx}
             yesFunc={yesFunc}
             noFunc={noFunc}
-            state={{ movie, setMovies }}
+            state={{ movies, setMovies }}
           >
             <MovieCard movie={movie} />
           </SwipeBox>
@@ -121,10 +114,10 @@ const SwipeMode: NextPage = () => {
 
   const setSwitchCards = () => {
     if (displaySet === "set1" && set1 && set1.data && set1.data.length) {
-      return renderCards(set1.data, setSet1);
+      return renderCards(set1, setSet1);
     }
     if (displaySet == "set2" && set2 && set2.data && set2.data.length) {
-      return renderCards(set2.data, setSet2);
+      return renderCards(set2, setSet2);
     }
     return <Loading />;
   };
@@ -150,20 +143,10 @@ const SwipeMode: NextPage = () => {
   };
 
   return (
-    <MyDiv>
-      <h3>
-        {set1.data && set1.data.length}
-        {set1.data &&
-          set1.data.map((movie) => <p key={movie.id}>{movie.title}</p>)}
-        {set2.data && set2.data.length}
-        {set2.data &&
-          set2.data.map((movie) => <p key={movie.id}>{movie.title}</p>)}
-      </h3>
-      <Wrapper>
-        <StyledDiv>{setSwitchCards()}</StyledDiv>
-        {setSwitchButtons()}
-      </Wrapper>
-    </MyDiv>
+    <Wrapper>
+      <StyledDiv>{setSwitchCards()}</StyledDiv>
+      {setSwitchButtons()}
+    </Wrapper>
   );
 };
 
