@@ -56,7 +56,7 @@ const getMovieDetails = async (movie: MovieType, tmdbV3: string) => {
   );
   const trailers = await getTrailers.json();
 
-  if (trailers.results.length) {
+  if (trailers && trailers.results && trailers.results.length) {
     const trailerInfo = trailers.results;
     movie.trailer = trailerInfo[0].key;
     movie.trailerType = trailerInfo[0].site;
