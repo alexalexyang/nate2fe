@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-import { SetProps } from "./index";
+import { SetProps } from "./data-types";
 import fetch from "isomorphic-unfetch";
 
 interface MoviesProps {
@@ -33,5 +33,5 @@ export const noFunc = (state: MoviesProps) => {
   setTimeout(() => {
     movies.data && movies.data.pop();
     setMovies({ ...movies });
-  }, 300);
+  }, 250);
 };
