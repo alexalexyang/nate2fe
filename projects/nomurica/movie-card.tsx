@@ -1,5 +1,5 @@
 import FullScreen from "./full-screen";
-import { MoviesProps } from "./types";
+import { MovieProps } from "./types";
 import { NextPage } from "next";
 import { StyledCard } from "./movie-card-styles";
 import styled from "styled-components";
@@ -20,7 +20,7 @@ const Card = styled.div`
   }
 `;
 
-const MovieCard: NextPage<MoviesProps> = ({ movie }: MoviesProps) => {
+const MovieCard: NextPage<MovieProps> = ({ ...movie }: MovieProps) => {
   return movie ? (
     <Card key={movie.id}>
       <StyledCard>
@@ -50,7 +50,7 @@ const MovieCard: NextPage<MoviesProps> = ({ movie }: MoviesProps) => {
               alt={`Poster for ${movie.original_title}`}
             />
           )}
-          <FullScreen movie={movie} />
+          <FullScreen {...movie} />
           <p>{movie.overview}</p>
         </StyledCard.Body>
         <StyledCard.Footer>

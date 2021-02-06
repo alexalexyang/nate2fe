@@ -1,11 +1,11 @@
+import { ContentRequest, RequestStatus } from "../../types/types";
 import { Dispatch, SetStateAction } from "react";
-import { RequestStatus, SetProps } from "../types";
 
 import fetch from "isomorphic-unfetch";
 
 const fetchSet = async <T>(
-  set: SetProps<T>,
-  setSet: Dispatch<SetStateAction<SetProps<T>>>,
+  set: ContentRequest<T[]>,
+  setSet: Dispatch<SetStateAction<ContentRequest<T[]>>>,
   url: string
 ) => {
   setSet({
@@ -17,8 +17,8 @@ const fetchSet = async <T>(
 };
 
 export const fetchIfEmpty = <T>(
-  set: SetProps<T>,
-  setSet: Dispatch<SetStateAction<SetProps<T>>>,
+  set: ContentRequest<T[]>,
+  setSet: Dispatch<SetStateAction<ContentRequest<T[]>>>,
   url: string
 ) => {
   const isEmpty = !set.data || !set.data.length;
@@ -34,8 +34,8 @@ export const fetchIfEmpty = <T>(
 };
 
 export const switchSet = <T>(
-  set1: SetProps<T>,
-  set2: SetProps<T>,
+  set1: ContentRequest<T[]>,
+  set2: ContentRequest<T[]>,
   setDisplaySet: Dispatch<SetStateAction<string>>
 ) => {
   const isEmptySet1 = !set1.data || !set1.data.length;

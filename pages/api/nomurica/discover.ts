@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { MovieType } from "../../../projects/nomurica/types";
+import { MovieProps } from "../../../projects/nomurica/types";
 import fetch from "isomorphic-unfetch";
 import getConfig from "next/config";
 import languages from "../../../projects/nomurica/languages_ISO639-1_Alpha2.json";
 
-interface MoviesProps {
+interface MoviesFetchProps {
   total_pages: string;
-  results: MovieType[];
+  results: MovieProps[];
 }
 
 const { serverRuntimeConfig } = getConfig();
@@ -50,7 +50,7 @@ const fetchMoviesfromRandomPage = async (
   return await response.json();
 };
 
-const getMovieDetails = async (movie: MovieType, tmdbV3: string) => {
+const getMovieDetails = async (movie: MovieProps, tmdbV3: string) => {
   const getTrailers = await fetch(
     `https://api.themoviedb.org/3/movie/${movie.id}/videos?${tmdbV3}`
   );
@@ -89,7 +89,7 @@ const getMovieDetails = async (movie: MovieType, tmdbV3: string) => {
 };
 
 const getMovie = async (
-  moviesByLanguage: MoviesProps,
+  moviesByLanguage: MoviesFetchProps,
   originalLanguage: string
 ) => {
   if (moviesByLanguage.results && moviesByLanguage.results.length) {

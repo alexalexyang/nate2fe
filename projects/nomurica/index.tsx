@@ -2,8 +2,8 @@ import { Box, Button, Container } from "@material-ui/core";
 
 import Head from "../../components/Head";
 import Loading from "../../components/Loading";
+import { MovieProps } from "./types";
 import Movies from "./movies";
-import { MoviesType } from "./types";
 import { NextPage } from "next";
 import PlayLottie from "../../utils/play-lottie";
 import SvgHelper from "../../components/SvgHelper";
@@ -57,7 +57,7 @@ const Nomurica: NextPage = () => {
   const content = converter.makeHtml(intro.default);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [movies, setMovies] = useState<MoviesType>();
+  const [movies, setMovies] = useState<MovieProps[]>();
 
   const getMovies = async () => {
     setLoading(true);
@@ -105,7 +105,7 @@ const Nomurica: NextPage = () => {
             <Container>
               <h2>Movies</h2>
               <MoviesWrapper>
-                <Movies movies={movies} />
+                <Movies {...movies} />
               </MoviesWrapper>
             </Container>
           </>

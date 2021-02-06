@@ -9,6 +9,8 @@ interface SwipeBoxProps {
   yesFunc: any;
   noFunc: any;
   state: any;
+  setState: any;
+  yesNoExtras?: any;
 }
 
 export interface SwipeProps {
@@ -26,6 +28,8 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
   yesFunc,
   noFunc,
   state,
+  setState,
+  yesNoExtras,
   children,
 }: SwipeBoxProps) => {
   const [data, setData] = useState<SwipeProps>();
@@ -39,7 +43,9 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
       const { velocity, absX, dir } = eventData;
 
       if (velocity > 1 || absX > 200) {
-        dir === "Right" ? yesFunc(state) : noFunc(state);
+        dir === "Right"
+          ? yesFunc(state, setState, yesNoExtras)
+          : noFunc(state, setState, yesNoExtras);
         eventData.deltaX = eventData.deltaX * 5;
         setData({ ...eventData, exceedThreshold: true });
         return setTimeout(() => setShow(false), 400);

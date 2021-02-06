@@ -1,8 +1,8 @@
 import MovieCard from "./movie-card";
-import { MoviesProps } from "./types";
+import { MovieProps } from "./types";
 import { NextPage } from "next";
 
-const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
+const Movies: NextPage<MovieProps[]> = ({ ...movies }: MovieProps[]) => {
   if (!movies) {
     return null;
   }
@@ -14,7 +14,7 @@ const Movies: NextPage<MoviesProps> = ({ movies }: MoviesProps) => {
   return (
     <>
       {movies!.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
+        <MovieCard key={movie.id} {...movie} />
       ))}
     </>
   );

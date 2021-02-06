@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { Button } from "@material-ui/core";
-import { MoviesProps } from "./types";
+import { MovieProps } from "./types";
 import { NextPage } from "next";
 import { useState } from "react";
 
@@ -48,7 +48,7 @@ const Centered = styled.div`
   }
 `;
 
-const FullScreen: NextPage<MoviesProps> = ({ movie }: MoviesProps) => {
+const FullScreen: NextPage<MovieProps> = ({ ...movie }: MovieProps) => {
   const [fullScreen, setFullScreen] = useState(false);
   const [movieId, setMovideId] = useState("");
 

@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-import Loading from "../../components/Loading";
-import MovieCard from "./movie-card";
-import { MoviePopularity } from "./types";
+import Loading from "../../../components/Loading";
+import MovieCard from "../movie-card";
+import { MoviePopularity } from "../types";
 import { NextPage } from "next";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
