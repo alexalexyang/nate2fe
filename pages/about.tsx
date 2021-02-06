@@ -1,6 +1,7 @@
 import { Box, Container } from "@material-ui/core";
 
 import Head from "../components/Head";
+import Layout from "../components/Layout";
 import showdown from "showdown";
 import styled from "styled-components";
 
@@ -28,7 +29,7 @@ export default function About() {
   const content = converter.makeHtml(about.default);
 
   return (
-    <>
+    <Layout>
       <Head page="About" />
       <Container>
         <Box dangerouslySetInnerHTML={{ __html: content }}></Box>
@@ -45,6 +46,6 @@ export default function About() {
           </p>
         </ImgWrapper>
       </Container>
-    </>
+    </Layout>
   );
 }

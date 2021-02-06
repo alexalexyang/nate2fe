@@ -20,7 +20,11 @@ const Card = styled.div`
   }
 `;
 
-const MovieCard: NextPage<MovieProps> = ({ ...movie }: MovieProps) => {
+const MovieCard: NextPage<{ movie: MovieProps }> = ({
+  movie,
+}: {
+  movie: MovieProps;
+}) => {
   return movie ? (
     <Card key={movie.id}>
       <StyledCard>

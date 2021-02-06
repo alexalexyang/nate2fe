@@ -1,6 +1,7 @@
 import { Box, Button, Container } from "@material-ui/core";
 
 import Head from "../../components/Head";
+import Layout from "./Layout";
 import Loading from "../../components/Loading";
 import { MovieProps } from "./types";
 import Movies from "./movies";
@@ -67,9 +68,9 @@ const Nomurica: NextPage = () => {
     setMovies(movies);
     setLoading(false);
   };
-
+  // console.log(movies);
   return (
-    <>
+    <Layout>
       <Head page="Nomurica" />
       <Box>
         <Container>
@@ -105,13 +106,13 @@ const Nomurica: NextPage = () => {
             <Container>
               <h2>Movies</h2>
               <MoviesWrapper>
-                <Movies {...movies} />
+                <Movies movies={movies} />
               </MoviesWrapper>
             </Container>
           </>
         ) : null}
       </Box>
-    </>
+    </Layout>
   );
 };
 

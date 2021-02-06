@@ -1,17 +1,15 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import Loading from "../../../components/Loading";
-import MovieCard from "../movie-card";
+import Layout from "../Layout";
 import { MoviePopularity } from "../types";
 import { NextPage } from "next";
 import fetch from "isomorphic-unfetch";
-import styled from "styled-components";
 
 const Popularity: NextPage = () => {
   const [movies, setMovies] = useState<MoviePopularity[]>();
   const getMovies = async () => {
     const fetched = await (await fetch(`/api/db-movies/popularity`)).json();
-    console.log(fetched.movies);
+
     setMovies(fetched.movies);
   };
 
@@ -26,12 +24,12 @@ const Popularity: NextPage = () => {
     ));
 
   return (
-    <>
+    <Layout>
       <button onClick={getMovies}>
         <h1>POPULARITY</h1>
       </button>
       {movies && renderMovies}
-    </>
+    </Layout>
   );
 };
 

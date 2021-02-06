@@ -4,9 +4,10 @@ import {
   RequestStatus,
 } from "../../types/types";
 import React, { useEffect, useState } from "react";
-import { StyledDiv, Wrapper } from "./swipe-mode-styles";
 import { fetchIfEmpty, switchSet } from "./helpers";
 import { setSwitchButtons, setSwitchCards } from "./content-components";
+
+import { StyledDiv } from "./swipe-mode-styles";
 
 const initialState = {
   status: RequestStatus.Idle,
@@ -19,14 +20,15 @@ interface SwipeModeProps<T, Extra> {
   Render: RenderComponentProps<T, Extra>;
   yesFunc: any;
   noFunc: any;
+  fetchUrl: string;
 }
 
 const SwipeGroup = <T extends object, Extra extends object>({
   Render,
   yesFunc,
   noFunc,
+  fetchUrl,
 }: SwipeModeProps<T, Extra>) => {
-  const fetchUrl = `/api/nomurica/discover?numOfMovies=${5}`;
   const [set1, setSet1] = useState<ContentRequest<T[]>>(initialState);
   const [set2, setSet2] = useState<ContentRequest<T[]>>(initialState);
   const [displaySet, setDisplaySet] = useState<string>("set1");
@@ -39,7 +41,7 @@ const SwipeGroup = <T extends object, Extra extends object>({
   }, [set1, set2]);
 
   return (
-    <Wrapper>
+    <>
       <StyledDiv>
         {setSwitchCards<T, Extra>({
           displaySet,
@@ -61,7 +63,7 @@ const SwipeGroup = <T extends object, Extra extends object>({
         yesFunc,
         noFunc,
       })}
-    </Wrapper>
+    </>
   );
 };
 

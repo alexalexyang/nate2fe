@@ -1,15 +1,15 @@
 import React, { ReactNode } from "react";
 
-import Loading from "./Loading";
+import Loading from "../../../components/Loading";
 import Navbar from "./NavBar";
 import { NextPage } from "next";
-import { useUser } from "../context/user";
+import { useUser } from "../../../context/user";
 
 type Props = {
   children: ReactNode;
 };
 
-const MainLayout: NextPage<Props> = ({ children }: Props) => {
+const NomuricaLayout: NextPage<Props> = ({ children }: Props) => {
   const { user } = useUser();
 
   if (user && user.loading) return <Loading />;
@@ -22,4 +22,4 @@ const MainLayout: NextPage<Props> = ({ children }: Props) => {
   );
 };
 
-export default MainLayout;
+export default NomuricaLayout;
