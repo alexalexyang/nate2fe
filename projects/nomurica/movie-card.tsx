@@ -20,27 +20,27 @@ const Card = styled.div`
   }
 `;
 
-const MovieCard: NextPage<{ movie: MovieProps }> = ({
-  movie,
+const MovieCard: NextPage<{ item: MovieProps }> = ({
+  item,
 }: {
-  movie: MovieProps;
+  item: MovieProps;
 }) => {
-  return movie ? (
-    <Card key={movie.id}>
+  return item ? (
+    <Card key={item.id}>
       <StyledCard>
         <StyledCard.Header>
-          {movie.title && <h3>Title: {movie.title}</h3>}
-          {movie.original_title && (
-            <h3>Original title: {movie.original_title}</h3>
+          {item.title && <h3>Title: {item.title}</h3>}
+          {item.original_title && (
+            <h3>Original title: {item.original_title}</h3>
           )}
-          {movie.release_date && <p>Release date: {movie.release_date}</p>}
-          {movie.production_countries && (
+          {item.release_date && <p>Release date: {item.release_date}</p>}
+          {item.production_countries && (
             <p>
               Production countries:{" "}
-              {movie.production_countries.map((country, idx) => (
+              {item.production_countries.map((country, idx) => (
                 <span key={country}>
                   {country}
-                  {!(movie.production_countries.length === idx + 1) && ", "}
+                  {!(item.production_countries.length === idx + 1) && ", "}
                 </span>
               ))}
             </p>
@@ -48,18 +48,18 @@ const MovieCard: NextPage<{ movie: MovieProps }> = ({
         </StyledCard.Header>
 
         <StyledCard.Body>
-          {movie.poster_path && (
+          {item.poster_path && (
             <img
-              src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-              alt={`Poster for ${movie.original_title}`}
+              src={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+              alt={`Poster for ${item.original_title}`}
             />
           )}
-          <FullScreen {...movie} />
-          <p>{movie.overview}</p>
+          <FullScreen item={item} />
+          <p>{item.overview}</p>
         </StyledCard.Body>
         <StyledCard.Footer>
           <a
-            href={`https://www.themoviedb.org/movie/${movie.id}`}
+            href={`https://www.themoviedb.org/movie/${item.id}`}
             target="__blank"
           >
             Edit on TMDB

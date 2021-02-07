@@ -1,6 +1,6 @@
 import {
   ContentRequest,
-  RenderComponentProps,
+  RenderComponent,
   StateProps,
   SwipeFuncProps,
 } from "../../types/types";
@@ -18,7 +18,7 @@ const CardGroup = <T extends object, Extra extends object>({
   Render,
   ...extra
 }: StateProps<T[]> & {
-  Render: RenderComponentProps<T, Extra>;
+  Render: RenderComponent;
 } & SwipeFuncProps) => (
   <>
     {set &&
@@ -31,7 +31,7 @@ const CardGroup = <T extends object, Extra extends object>({
           state={set}
           setState={setSet}
         >
-          <Render key={idx} {...item} {...(extra as Extra)} />
+          <Render key={idx} item={item} {...(extra as Extra)} />
         </SwipeBox>
       ))}
   </>
@@ -45,7 +45,7 @@ interface SwitchProps<T> {
   setSet2: Dispatch<SetStateAction<ContentRequest<T[]>>>;
 }
 
-export const setSwitchCards = <T extends object, Extra extends object>({
+export const CardGroupSwitch = <T extends object, Extra extends object>({
   displaySet,
   set1,
   setSet1,
@@ -56,7 +56,7 @@ export const setSwitchCards = <T extends object, Extra extends object>({
   noFunc,
   ...extra
 }: SwitchProps<T> & {
-  Render: RenderComponentProps<T, Extra>;
+  Render: RenderComponent;
 } & SwipeFuncProps) => {
   if (displaySet === "set1" && set1 && set1.data && set1.data.length) {
     return (
@@ -85,7 +85,7 @@ export const setSwitchCards = <T extends object, Extra extends object>({
   return <Loading />;
 };
 
-export const setSwitchButtons = <T extends object>({
+export const ButtonGroupSwitch = <T extends object>({
   displaySet,
   set1,
   setSet1,

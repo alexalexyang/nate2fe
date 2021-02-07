@@ -18,7 +18,7 @@ const Movies: NextPage<{ movies: MovieProps[] }> = ({
   return (
     <>
       {movies!.map((movie) => {
-        return <MovieCard key={movie.id} movie={movie} />;
+        return <MovieCard key={movie.id} item={movie} />;
       })}
     </>
   );

@@ -48,23 +48,27 @@ const Centered = styled.div`
   }
 `;
 
-const FullScreen: NextPage<MovieProps> = ({ ...movie }: MovieProps) => {
+const FullScreen: NextPage<{ item: MovieProps }> = ({
+  item,
+}: {
+  item: MovieProps;
+}) => {
   const [fullScreen, setFullScreen] = useState(false);
-  const [movieId, setMovideId] = useState("");
+  const [movieId, setMovieId] = useState("");
 
-  if (!movie || !movie.trailer) {
+  if (!item || !item.trailer) {
     return null;
   }
 
   const gofullScreen = (id: string) => {
     setFullScreen(!fullScreen);
-    setMovideId(id);
+    setMovieId(id);
   };
 
   const trailerLink =
-    movie.trailerType === "YouTube"
-      ? `https://youtube.com/embed/${movie.trailer}`
-      : `https://player.vimeo.com/video/${movie.trailer}`;
+    item.trailerType === "YouTube"
+      ? `https://youtube.com/embed/${item.trailer}`
+      : `https://player.vimeo.com/video/${item.trailer}`;
 
   return (
     <>
@@ -72,7 +76,7 @@ const FullScreen: NextPage<MovieProps> = ({ ...movie }: MovieProps) => {
         size="large"
         variant="contained"
         color="primary"
-        onClick={() => gofullScreen(`full-screen-${movie.id}`)}
+        onClick={() => gofullScreen(`full-screen-${item.id}`)}
       >
         Trailer
       </Button>
@@ -80,20 +84,20 @@ const FullScreen: NextPage<MovieProps> = ({ ...movie }: MovieProps) => {
         <StyledFullScreen
           fullScreen={fullScreen}
           movieId={movieId}
-          onClick={() => gofullScreen(`full-screen-${movie.id}`)}
+          onClick={() => gofullScreen(`full-screen-${item.id}`)}
         >
-          <Centered id={`full-screen-${movie.id}`}>
+          <Centered id={`full-screen-${item.id}`}>
             <Button
               size="large"
               variant="contained"
               color="primary"
-              onClick={() => gofullScreen(`full-screen-${movie.id}`)}
+              onClick={() => gofullScreen(`full-screen-${item.id}`)}
             >
               Exit
             </Button>
             <iframe
               className="video"
-              title={`Trailer for ${movie.trailer}`}
+              title={`Trailer for ${item.trailer}`}
               src={trailerLink}
               allowFullScreen
             />

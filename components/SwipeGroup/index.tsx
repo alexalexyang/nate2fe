@@ -1,13 +1,12 @@
+import { ButtonGroupSwitch, CardGroupSwitch } from "./content-components";
+import { ButtonsWrapper, StyledDiv } from "./swipe-mode-styles";
 import {
   ContentRequest,
-  RenderComponentProps,
+  RenderComponent,
   RequestStatus,
 } from "../../types/types";
 import React, { useEffect, useState } from "react";
 import { fetchIfEmpty, switchSet } from "./helpers";
-import { setSwitchButtons, setSwitchCards } from "./content-components";
-
-import { StyledDiv } from "./swipe-mode-styles";
 
 const initialState = {
   status: RequestStatus.Idle,
@@ -16,8 +15,8 @@ const initialState = {
   fetchStatus: RequestStatus.Idle,
 };
 
-interface SwipeModeProps<T, Extra> {
-  Render: RenderComponentProps<T, Extra>;
+interface SwipeModeProps {
+  Render: RenderComponent;
   yesFunc: any;
   noFunc: any;
   fetchUrl: string;
@@ -28,7 +27,7 @@ const SwipeGroup = <T extends object, Extra extends object>({
   yesFunc,
   noFunc,
   fetchUrl,
-}: SwipeModeProps<T, Extra>) => {
+}: SwipeModeProps) => {
   const [set1, setSet1] = useState<ContentRequest<T[]>>(initialState);
   const [set2, setSet2] = useState<ContentRequest<T[]>>(initialState);
   const [displaySet, setDisplaySet] = useState<string>("set1");
@@ -43,7 +42,7 @@ const SwipeGroup = <T extends object, Extra extends object>({
   return (
     <>
       <StyledDiv>
-        {setSwitchCards<T, Extra>({
+        {CardGroupSwitch<T, Extra>({
           displaySet,
           set1,
           setSet1,
@@ -54,15 +53,17 @@ const SwipeGroup = <T extends object, Extra extends object>({
           noFunc,
         })}
       </StyledDiv>
-      {setSwitchButtons({
-        displaySet,
-        set1,
-        setSet1,
-        set2,
-        setSet2,
-        yesFunc,
-        noFunc,
-      })}
+      <ButtonsWrapper>
+        {ButtonGroupSwitch({
+          displaySet,
+          set1,
+          setSet1,
+          set2,
+          setSet2,
+          yesFunc,
+          noFunc,
+        })}
+      </ButtonsWrapper>
     </>
   );
 };

@@ -19,7 +19,7 @@ export interface StateProps<T> {
   setSet: Dispatch<SetStateAction<ContentRequest<T>>>;
 }
 
-export type RenderComponentProps<T, Extra> = ComponentType<T & Extra>;
+export type RenderComponent = ComponentType;
 
 export interface SwipeFuncProps {
   noFunc: any;
