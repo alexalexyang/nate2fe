@@ -1,24 +1,8 @@
+import { Card, Center, Poster, StyledCard } from "./movie-card-styles";
+
 import FullScreen from "./full-screen";
 import { MovieProps } from "./types";
 import { NextPage } from "next";
-import { StyledCard } from "./movie-card-styles";
-import styled from "styled-components";
-
-const Card = styled.div`
-  > * {
-    margin: 1rem 0;
-    padding: 1rem;
-    width: 100%;
-    max-height: 1500px;
-    background-color: white;
-    border-radius: 30px;
-    box-shadow: 1px 1px 5px lightgray;
-
-    :hover {
-      background-color: lightgoldenrodyellow;
-    }
-  }
-`;
 
 const MovieCard: NextPage<{ item: MovieProps }> = ({
   item,
@@ -49,10 +33,12 @@ const MovieCard: NextPage<{ item: MovieProps }> = ({
 
         <StyledCard.Body>
           {item.poster_path && (
-            <img
-              src={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
-              alt={`Poster for ${item.original_title}`}
-            />
+            <Center>
+              <Poster
+                url={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+                alt={`Poster for ${item.original_title}`}
+              />
+            </Center>
           )}
           <FullScreen item={item} />
           <p>{item.overview}</p>
