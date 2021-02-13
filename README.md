@@ -1,5 +1,8 @@
 # Todo
 
+- Set up Auth0 accounts
+- Set up app-specific navbar
+
 - invite-form.tsx:
   - render invited and alreadyInvited
 - Delete user from MongoDb when user deletes self.
