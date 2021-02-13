@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Layout from "../Layout";
 import { MoviePopularity } from "../types";
 import { NextPage } from "next";
 import fetch from "isomorphic-unfetch";
 
-const Popularity: NextPage = () => {
+const TopMovies: NextPage = () => {
   const [movies, setMovies] = useState<MoviePopularity[]>();
-  const getMovies = async () => {
-    const fetched = await (await fetch(`/api/db-movies/popularity`)).json();
 
-    setMovies(fetched.movies);
-  };
+  useEffect(() => {
+    const getMovies = async () => {
+      const fetched = await (await fetch(`/api/db-movies/popularity`)).json();
+
+      setMovies(fetched.movies);
+    };
+
+    getMovies();
+  }, []);
 
   const renderMovies =
     movies &&
@@ -25,12 +30,11 @@ const Popularity: NextPage = () => {
 
   return (
     <Layout>
-      <button onClick={getMovies}>
-        <h1>POPULARITY</h1>
-      </button>
+      <h1>POPULARITY</h1>
+
       {movies && renderMovies}
     </Layout>
   );
 };
 
-export default Popularity;
+export default TopMovies;

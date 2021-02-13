@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import styled, { createGlobalStyle } from "styled-components";
 
 import Loading from "../../../components/Loading";
 import Navbar from "./NavBar";
@@ -9,6 +10,22 @@ type Props = {
   children: ReactNode;
 };
 
+const GlobalStyles = createGlobalStyle`
+  body {
+    font-family: Helvetica, sans-serif;
+    background-color: #ba55d3;
+    font-size: 1.5rem;
+    color: #2e2b2b;
+  }
+`;
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 const NomuricaLayout: NextPage<Props> = ({ children }: Props) => {
   const { user } = useUser();
 
@@ -16,8 +33,9 @@ const NomuricaLayout: NextPage<Props> = ({ children }: Props) => {
 
   return (
     <>
+      <GlobalStyles />
       <Navbar />
-      {children!}
+      <Main>{children!}</Main>
     </>
   );
 };

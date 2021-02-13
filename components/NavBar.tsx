@@ -105,9 +105,13 @@ const NavBar: NextPage = () => {
     <div>
       <AppBar position="static" className={classes.gradient}>
         <Toolbar>
-          <Typography variant="h6" className={classes.logo}>
-            {PlayLottie(monster, 60, 60)}
-          </Typography>
+          <Link href="/">
+            <a href="/" rel="Home">
+              <Typography variant="h6" className={classes.logo}>
+                {PlayLottie(monster, 60, 60)}
+              </Typography>
+            </a>
+          </Link>
           <div className={classes.menuBox}>
             {isMobile ? (
               <>

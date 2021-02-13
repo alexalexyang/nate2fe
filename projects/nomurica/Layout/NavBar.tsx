@@ -8,7 +8,7 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { createStyles, makeStyles, useTheme } from "@material-ui/core/styles";
-import { menuItem, menuItems } from "../../main/config";
+import { menuItem, menuItems } from "./config";
 
 import { IPalette } from "../../../styles/theme";
 import Link from "next/link";
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: ITheme) =>
       textDecoration: "inherit",
     },
     gradient: {
-      background: theme.palette.gradient.lightGradient,
+      background: "rgb(236, 220, 77)",
     },
   })
 );
@@ -105,9 +105,13 @@ const NavBar: NextPage = () => {
     <div>
       <AppBar position="static" className={classes.gradient}>
         <Toolbar>
-          <Typography variant="h6" className={classes.logo}>
-            {PlayLottie(monster, 60, 60)}
-          </Typography>
+          <Link href="/">
+            <a href="/" rel="Home">
+              <Typography variant="h6" className={classes.logo}>
+                {PlayLottie(monster, 60, 60)}
+              </Typography>
+            </a>
+          </Link>
           <div className={classes.menuBox}>
             {isMobile ? (
               <>

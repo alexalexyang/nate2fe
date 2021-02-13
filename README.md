@@ -1,7 +1,11 @@
 # Todo
 
-- Set up Auth0 accounts
 - Set up app-specific navbar
+
+- Auth CRUD
+
+  - Remember to set up which Auth0 tenant to add user to and delete from.
+  - Delete is in [hooks](https://manage.auth0.com/dashboard/eu/alexalexyang/hooks).
 
 - invite-form.tsx:
   - render invited and alreadyInvited
