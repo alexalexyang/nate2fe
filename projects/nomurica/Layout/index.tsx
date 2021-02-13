@@ -15,7 +15,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: Helvetica, sans-serif;
     background-color: #ba55d3;
     font-size: 1.5rem;
-    color: #2e2b2b;
+    color: #2e2b2b; 
+
+
   }
 `;
 
@@ -24,6 +26,17 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  animation: fadein 0.5s;
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const NomuricaLayout: NextPage<Props> = ({ children }: Props) => {
