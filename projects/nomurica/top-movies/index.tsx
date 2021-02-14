@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 
 import Layout from "../Layout";
-import { MoviePopularity } from "../types";
+import MovieCard from "../movie-card";
+import { MovieProps } from "../types";
 import { NextPage } from "next";
 import fetch from "isomorphic-unfetch";
 
 const TopMovies: NextPage = () => {
-  const [movies, setMovies] = useState<MoviePopularity[]>();
+  const [movies, setMovies] = useState<MovieProps[]>();
 
   useEffect(() => {
     const getMovies = async () => {
-      const fetched = await (await fetch(`/api/db-movies/popularity`)).json();
+      const fetched = await (await fetch(`/api/nomurica/get-movies`)).json();
 
       setMovies(fetched.movies);
     };
@@ -19,14 +20,7 @@ const TopMovies: NextPage = () => {
   }, []);
 
   const renderMovies =
-    movies &&
-    movies.map((movie) => (
-      <div key={movie.tmdb_id}>
-        <h2>
-          {movie.title}: {movie.likes} likes
-        </h2>
-      </div>
-    ));
+    movies && movies.map((movie) => <MovieCard key={movie.id} item={movie} />);
 
   return (
     <Layout>

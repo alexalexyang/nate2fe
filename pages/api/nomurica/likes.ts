@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { moviesCollection } from "./db-connection";
+import { moviesCollection } from "../db-movies/db-connection";
 
 const likes = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

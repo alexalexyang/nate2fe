@@ -16,7 +16,7 @@ export const yesFunc = async (
 
     currentMovie &&
       fetch(
-        `/api/db-movies/likes?movie_id=${currentMovie.id}&movie_title=${currentMovie.title}`
+        `/api/nomurica/likes?movie_id=${currentMovie.id}&movie_title=${currentMovie.title}`
       );
 
     setMovies({ ...movies });

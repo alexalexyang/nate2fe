@@ -8,6 +8,7 @@ export interface MovieProps {
   trailer: string;
   overview: string;
   trailerType: string;
+  likes?: number;
 }
 
 export interface MoviePopularity {

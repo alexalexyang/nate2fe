@@ -1,6 +1,6 @@
 # Todo
 
-- Set up app-specific navbar
+- Add likes to top-movies movie card
 
 - Auth CRUD
 
