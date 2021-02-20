@@ -15,6 +15,11 @@ export const menuItems: menuItem[] = [
     url: "/about",
     auth: false,
   },
+  // {
+  //   title: "Manifesto",
+  //   url: "/manifesto",
+  //   auth: false,
+  // },
   {
     title: "Settings",
     url: "/settings",
