@@ -27,10 +27,10 @@ const theme = createMuiTheme({
       main: red.A400,
     },
     background: {
-      default: cyan[50],
+      default: "#c3d0f5",
     },
     gradient: {
-      lightGradient: "linear-gradient(-45deg, #19547b, #734b6d)",
+      lightGradient: "linear-gradient(-45deg, #ff00ff, blueviolet, purple)",
     },
   },
 } as IThemeOptions);

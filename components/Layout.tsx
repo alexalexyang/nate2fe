@@ -15,7 +15,7 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 
   font-size: 1.5rem;
 `;
@@ -24,8 +24,6 @@ const Center = styled.div`
   padding: 0 1rem 0 1rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
 
   @media (min-width: 750px) {
     padding: 0;

@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import Loading from "../../../components/Loading";
 import Navbar from "./NavBar";
 import { NextPage } from "next";
+import { navBarHeight } from "../../../styles/style-constants";
 import { useUser } from "../../../context/user";
 
 type Props = {
@@ -13,18 +14,26 @@ type Props = {
 const GlobalStyles = createGlobalStyle`
   body {
     font-family: Helvetica, sans-serif;
-    background-color: #ba55d3;
+    background-color: #cfa5da;
     font-size: 1.5rem;
-    color: #2e2b2b; 
+    color: #2e2b2b;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+
+    #__next {
+      height: 100%;
+      width: 100%;
+    }
   }
 `;
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   animation: fadein 0.5s;
+  height: calc(100% - ${navBarHeight});
 
   @keyframes fadein {
     from {

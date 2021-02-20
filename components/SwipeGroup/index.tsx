@@ -1,11 +1,11 @@
 import { ButtonGroupSwitch, CardGroupSwitch } from "./content-components";
-import { ButtonsWrapper, StyledDiv } from "./swipe-mode-styles";
 import {
   ContentRequest,
   RenderComponent,
   RequestStatus,
 } from "../../types/types";
 import React, { useEffect, useState } from "react";
+import { StyledButtonGroup, StyledCardGroup } from "./swipe-mode-styles";
 import { fetchIfEmpty, switchSet } from "./helpers";
 
 const initialState = {
@@ -41,7 +41,7 @@ const SwipeGroup = <T extends object, Extra extends object>({
 
   return (
     <>
-      <StyledDiv>
+      <StyledCardGroup>
         {CardGroupSwitch<T, Extra>({
           displaySet,
           set1,
@@ -52,8 +52,8 @@ const SwipeGroup = <T extends object, Extra extends object>({
           yesFunc,
           noFunc,
         })}
-      </StyledDiv>
-      <ButtonsWrapper>
+      </StyledCardGroup>
+      <StyledButtonGroup>
         {ButtonGroupSwitch({
           displaySet,
           set1,
@@ -63,7 +63,7 @@ const SwipeGroup = <T extends object, Extra extends object>({
           yesFunc,
           noFunc,
         })}
-      </ButtonsWrapper>
+      </StyledButtonGroup>
     </>
   );
 };

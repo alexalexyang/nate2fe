@@ -13,10 +13,19 @@ const MovieCard: NextPage<{ item: MovieProps }> = ({
     <Card key={item.id}>
       <StyledCard>
         <StyledCard.Header>
+          {item.likes && (
+            <p>
+              {item.likes}{" "}
+              <span role="img" aria-label="Likes">
+                ❤️
+              </span>
+            </p>
+          )}
           {item.title && <h3>Title: {item.title}</h3>}
           {item.original_title && (
             <h3>Original title: {item.original_title}</h3>
           )}
+
           {item.release_date && <p>Release date: {item.release_date}</p>}
           {item.production_countries && item.production_countries.length != 0 && (
             <p>
@@ -29,7 +38,6 @@ const MovieCard: NextPage<{ item: MovieProps }> = ({
               ))}
             </p>
           )}
-          {item.likes && <p>Likes: {item.likes}</p>}
         </StyledCard.Header>
 
         <StyledCard.Body>

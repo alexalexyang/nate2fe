@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   align-items: center;
   border-radius: 30px;
   background-color: #ffe6e9;
-  box-shadow: 1px 1px 5px lightgray;
+  box-shadow: 1px 1px 5px gray;
 
   :hover {
     cursor: pointer;

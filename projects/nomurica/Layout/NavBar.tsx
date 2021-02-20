@@ -18,6 +18,7 @@ import PlayLottie from "../../../utils/play-lottie";
 import React from "react";
 import { Theme } from "@material-ui/core/styles/createMuiTheme";
 import monster from "../../../components/Dashboard/logos/green-monster.json";
+import { navBarHeight } from "../../../styles/style-constants";
 import { useUser } from "../../../context/user";
 
 interface ITheme extends Theme {
@@ -27,7 +28,9 @@ interface ITheme extends Theme {
 const useStyles = makeStyles((theme: ITheme) =>
   createStyles({
     root: {
+      height: navBarHeight,
       flexGrow: 1,
+      background: "rgb(236, 220, 77)",
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -53,9 +56,6 @@ const useStyles = makeStyles((theme: ITheme) =>
     menuLink: {
       color: "inherit",
       textDecoration: "inherit",
-    },
-    gradient: {
-      background: "rgb(236, 220, 77)",
     },
   })
 );
@@ -102,8 +102,8 @@ const NavBar: NextPage = () => {
   };
 
   return (
-    <div>
-      <AppBar position="static" className={classes.gradient}>
+    <>
+      <AppBar position="static" className={classes.root}>
         <Toolbar>
           <Link href="/">
             <a href="/" rel="Home">
@@ -150,7 +150,7 @@ const NavBar: NextPage = () => {
           </div>
         </Toolbar>
       </AppBar>
-    </div>
+    </>
   );
 };
 

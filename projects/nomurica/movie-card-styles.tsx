@@ -9,6 +9,8 @@ type Component = StyledComponent<"div", {}> & {
 export const StyledCard = styled.div`
   width: 100%;
   height: 100%;
+
+  overflow: auto;
 ` as Component;
 
 StyledCard.Header = styled.div`
@@ -52,18 +54,16 @@ StyledCard.Footer = styled.div`
 `;
 
 export const Card = styled.div`
-  > * {
-    margin: 1rem 0;
-    padding: 1rem;
-    width: 100%;
-    max-height: 1500px;
-    background-color: white;
-    border-radius: 30px;
-    box-shadow: 1px 1px 5px lightgray;
+  margin: 1rem 0;
+  padding: 1rem;
+  width: 100%;
+  max-height: 1500px;
+  background-color: #fff6ee;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px #858585;
 
-    :hover {
-      background-color: lightgoldenrodyellow;
-    }
+  :hover {
+    background-color: #faefef;
   }
 `;
 
@@ -83,16 +83,6 @@ export const Poster = styled.div<{ url: string; height?: number; alt: string }>`
       height: ${props.height ?? 400}px;
       width: 60%;
     `}
-`;
-
-export const Summary = styled.div`
-  > * {
-    height: inherit;
-  }
-
-  ${StyledCard} {
-    overflow: auto;
-  }
 `;
 
 export const MoviesWrapper = styled.div`

@@ -1,6 +1,7 @@
 # Todo
 
-- Add likes to top-movies movie card
+- Fix movie card responsive page layout
+- Make new yes/no buttons
 
 - Auth CRUD
 
