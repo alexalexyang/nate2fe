@@ -24,7 +24,9 @@ There is no such thing as "Asian values". Democracy and human rights are univers
 
 What else... Let me think.
 
-Gender equality, etc.
+Monogamy is not the only valid form of relationships. Polyamory is an equally valid form. There are others.
+
+Support gender equality, the disabled, refugees, sex workers, neurodiversity, etc.
 
 Bitcoin is a danger to our climate.
 
