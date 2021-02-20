@@ -69,7 +69,6 @@ const Nomurica: NextPage = () => {
           {loading ? (
             <>
               <Loading />
-              <h2>{`This is you. This is how you wait.`}</h2>
             </>
           ) : (
             <SearchButton

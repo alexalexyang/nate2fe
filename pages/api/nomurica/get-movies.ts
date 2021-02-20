@@ -11,7 +11,6 @@ const baseUrl = `https://api.themoviedb.org/3/movie`;
 
 const getMovies = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    console.log("Getting movies");
     const moviesConn = await moviesCollection();
     const moviesfromDb = await moviesConn
       .find({})
