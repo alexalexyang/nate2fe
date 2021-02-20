@@ -18,7 +18,7 @@ const MovieCard: NextPage<{ item: MovieProps }> = ({
             <h3>Original title: {item.original_title}</h3>
           )}
           {item.release_date && <p>Release date: {item.release_date}</p>}
-          {item.production_countries && (
+          {item.production_countries.length != 0 && (
             <p>
               Production countries:{" "}
               {item.production_countries.map((country, idx) => (
@@ -29,6 +29,7 @@ const MovieCard: NextPage<{ item: MovieProps }> = ({
               ))}
             </p>
           )}
+          {item.likes && <p>Likes: {item.likes}</p>}
         </StyledCard.Header>
 
         <StyledCard.Body>

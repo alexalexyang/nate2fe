@@ -94,3 +94,20 @@ export const Summary = styled.div`
     overflow: auto;
   }
 `;
+
+export const MoviesWrapper = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  height: 100%;
+
+  @media (min-width: 750px) {
+    height: 2000px;
+
+    > * {
+      width: 45%;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+`;

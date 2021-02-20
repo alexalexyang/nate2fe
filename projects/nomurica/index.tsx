@@ -19,23 +19,6 @@ const converter = new showdown.Converter({
   noHeaderId: true,
 });
 
-const MoviesWrapper = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  width: 100%;
-  height: 100%;
-
-  @media (min-width: 750px) {
-    height: 2000px;
-
-    > * {
-      width: 45%;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-    }
-  }
-`;
-
 const CenterChildren = styled.div`
   display: flex;
   flex-direction: column;
@@ -102,14 +85,10 @@ const Nomurica: NextPage = () => {
         </CenterChildren>
 
         {movies && !loading ? (
-          <>
-            <Container>
-              <h2>Movies</h2>
-              <MoviesWrapper>
-                <Movies movies={movies} />
-              </MoviesWrapper>
-            </Container>
-          </>
+          <Container>
+            <h2>Movies</h2>
+            <Movies movies={movies} />
+          </Container>
         ) : null}
       </Box>
     </Layout>
