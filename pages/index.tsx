@@ -3,9 +3,10 @@ import Head from "../components/Head";
 import Layout from "../components/Layout";
 import { NextPage } from "next";
 import { Typography } from "@material-ui/core";
-import { useUser } from "../context/user";
+// import { useUser } from "../context/user";
+
 const Home: NextPage = () => {
-  const { user } = useUser();
+  // const { user } = useUser();
 
   return (
     <>
@@ -16,7 +17,6 @@ const Home: NextPage = () => {
           Welcome.
         </Typography>
 
-        {/* {user && user.auth && <Dashboard />} */}
         <Dashboard />
       </Layout>
     </>

@@ -19,9 +19,11 @@ const ImgWrapper = styled(Container)`
 `;
 
 const StyledImg = styled.img`
-  height: 150px;
-  width: 150px;
-  border-radius: 30px;
+  height: 200px;
+  width: 200px;
+  border-radius: 40%;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 5px gray;
 `;
 
 export default function About() {

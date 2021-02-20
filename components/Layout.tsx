@@ -16,6 +16,8 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  font-size: 1.5rem;
 `;
 
 const Center = styled.div`
