@@ -7,63 +7,23 @@ import {
   Typography,
   useMediaQuery,
 } from "@material-ui/core";
-import { createStyles, makeStyles, useTheme } from "@material-ui/core/styles";
 import { menuItem, menuItems } from "./config";
 
-import { IPalette } from "../../../styles/theme";
 import Link from "next/link";
 import MenuIcon from "@material-ui/icons/Menu";
 import { NextPage } from "next";
 import PlayLottie from "../../../utils/play-lottie";
 import React from "react";
-import { Theme } from "@material-ui/core/styles/createMuiTheme";
 import monster from "../../../components/Dashboard/logos/green-monster.json";
 import { navBarHeight } from "../../../styles/style-constants";
+import { navBarStyles } from "../../../styles/styles";
+import { useTheme } from "@material-ui/core/styles";
 import { useUser } from "../../../context/user";
-
-interface ITheme extends Theme {
-  palette: IPalette;
-}
-
-const useStyles = makeStyles((theme: ITheme) =>
-  createStyles({
-    root: {
-      height: navBarHeight,
-      flexGrow: 1,
-      background: "rgb(236, 220, 77)",
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    logo: {
-      flexGrow: 0.5,
-      [theme.breakpoints.down("xs")]: {
-        flexGrow: 1,
-      },
-    },
-    menuBox: {
-      display: "flex",
-      flexGrow: 1,
-      [theme.breakpoints.down("xs")]: {
-        flexGrow: 0,
-      },
-    },
-    menuItems: {
-      display: "flex",
-      flex: 1,
-      justifyContent: "space-around",
-    },
-    menuLink: {
-      color: "inherit",
-      textDecoration: "inherit",
-    },
-  })
-);
 
 const NavBar: NextPage = () => {
   const { user } = useUser();
 
-  const classes = useStyles();
+  const classes = navBarStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
@@ -102,55 +62,51 @@ const NavBar: NextPage = () => {
   };
 
   return (
-    <>
-      <AppBar position="static" className={classes.root}>
-        <Toolbar>
-          <Link href="/">
-            <a href="/" rel="Home">
-              <Typography variant="h6" className={classes.logo}>
-                {PlayLottie(monster, 60, 60)}
-              </Typography>
-            </a>
-          </Link>
-          <div className={classes.menuBox}>
-            {isMobile ? (
-              <>
-                <IconButton
-                  onClick={handleMenu}
-                  edge="start"
-                  className={classes.menuButton}
-                  color="inherit"
-                  aria-label="menu"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={open}
-                  onClose={() => setAnchorEl(null)}
-                >
-                  {renderMenuItems(menuItems)}
-                </Menu>
-              </>
-            ) : (
-              <div className={classes.menuItems}>
+    <AppBar position="static" className={classes.root}>
+      <Toolbar className={classes.spaceBetween}>
+        <Link href="/">
+          <a href="/" rel="Home">
+            {PlayLottie(monster, navBarHeight, navBarHeight)}
+          </a>
+        </Link>
+        <div className={classes.menuBox}>
+          {isMobile ? (
+            <>
+              <IconButton
+                onClick={handleMenu}
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={open}
+                onClose={() => setAnchorEl(null)}
+              >
                 {renderMenuItems(menuItems)}
-              </div>
-            )}
-          </div>
-        </Toolbar>
-      </AppBar>
-    </>
+              </Menu>
+            </>
+          ) : (
+            <div className={classes.menuItems}>
+              {renderMenuItems(menuItems)}
+            </div>
+          )}
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 };
 

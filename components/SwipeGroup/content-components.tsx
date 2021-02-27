@@ -6,7 +6,6 @@ import {
 } from "../../types/types";
 import { Dispatch, SetStateAction } from "react";
 
-import Loading from "../Loading";
 import SwipeBox from "../SwipeBox";
 import YesNoButtons from "./yes-no-buttons";
 
@@ -82,7 +81,7 @@ export const CardGroupSwitch = <T extends object, Extra extends object>({
       />
     );
   }
-  return <Loading />;
+  return null;
 };
 
 export const ButtonGroupSwitch = <T extends object>({

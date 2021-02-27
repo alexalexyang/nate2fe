@@ -48,6 +48,7 @@ const SwipeBox: NextPage<SwipeBoxProps> = ({
           : noFunc(state, setState, yesNoExtras);
         eventData.deltaX = eventData.deltaX * 5;
         setData({ ...eventData, exceedThreshold: true });
+        // Memory leak with setTimeout?
         return setTimeout(() => setShow(false), 400);
       }
 

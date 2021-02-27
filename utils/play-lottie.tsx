@@ -1,6 +1,6 @@
 import Lottie from "react-lottie";
 
-const PlayLottie = (animation: any, height: number, width: number) => {
+const PlayLottie = (animation: any, height: string, width: string) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,

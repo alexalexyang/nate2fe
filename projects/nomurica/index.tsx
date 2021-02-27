@@ -78,7 +78,7 @@ const Nomurica: NextPage = () => {
               color="primary"
             >
               Get Movies
-              {PlayLottie(Search, 100, 100)}
+              {PlayLottie(Search, "100", "100")}
             </SearchButton>
           )}
         </CenterChildren>

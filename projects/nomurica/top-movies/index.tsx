@@ -8,7 +8,6 @@ import MovieCard from "../movie-card";
 import { MovieProps } from "../types";
 import { MoviesWrapper } from "../movie-card-styles";
 import { NextPage } from "next";
-import PlayLottie from "../../../utils/play-lottie";
 import fetch from "isomorphic-unfetch";
 
 const TopMovies: NextPage = () => {

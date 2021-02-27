@@ -8,6 +8,8 @@ import React, { useEffect, useState } from "react";
 import { StyledButtonGroup, StyledCardGroup } from "./swipe-mode-styles";
 import { fetchIfEmpty, switchSet } from "./helpers";
 
+import Loading from "../Loading";
+
 const initialState = {
   status: RequestStatus.Idle,
   data: undefined,
@@ -39,30 +41,36 @@ const SwipeGroup = <T extends object, Extra extends object>({
     switchSet<T>(set1, set2, setDisplaySet);
   }, [set1, set2]);
 
+  if (
+    set1.status !== RequestStatus.Success &&
+    set2.status !== RequestStatus.Success
+  )
+    return <Loading />;
+
   return (
     <>
       <StyledCardGroup>
-        {CardGroupSwitch<T, Extra>({
-          displaySet,
-          set1,
-          setSet1,
-          set2,
-          setSet2,
-          Render,
-          yesFunc,
-          noFunc,
-        })}
+        <CardGroupSwitch
+          displaySet={displaySet}
+          set1={set1}
+          setSet1={setSet1}
+          set2={set2}
+          setSet2={setSet2}
+          Render={Render}
+          yesFunc={yesFunc}
+          noFunc={noFunc}
+        />
       </StyledCardGroup>
       <StyledButtonGroup>
-        {ButtonGroupSwitch({
-          displaySet,
-          set1,
-          setSet1,
-          set2,
-          setSet2,
-          yesFunc,
-          noFunc,
-        })}
+        <ButtonGroupSwitch
+          displaySet={displaySet}
+          set1={set1}
+          setSet1={setSet1}
+          set2={set2}
+          setSet2={setSet2}
+          yesFunc={yesFunc}
+          noFunc={noFunc}
+        />
       </StyledButtonGroup>
     </>
   );

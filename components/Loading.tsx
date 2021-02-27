@@ -15,7 +15,7 @@ let LoadingAnim = require(`../assets/loading.json`);
 const Loading: NextPage = () => {
   return (
     <Center>
-      {PlayLottie(LoadingAnim, 300, 300)}
+      {PlayLottie(LoadingAnim, "100%", "100%")}
       <h2>{`This is you. This is how you wait.`}</h2>
     </Center>
   );

@@ -1,6 +1,6 @@
 # Todo
 
-- Fix movie card responsive page layout
+- Match people if they like at least 5 of the same movies?
 - Make new yes/no buttons
 
 - Auth CRUD

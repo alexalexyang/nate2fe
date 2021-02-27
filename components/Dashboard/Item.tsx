@@ -45,7 +45,7 @@ const Dashboard: NextPage<IDashboard> = ({
   return (
     <Link href={`${url}`}>
       <Wrapper>
-        <Box m={"10px"}>{PlayLottie(Image, 200, 200)}</Box>
+        <Box m={"10px"}>{PlayLottie(Image, "200", "200")}</Box>
         <Box m={"10px"}>
           <h2>{app}</h2>
           <p>{description}</p>

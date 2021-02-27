@@ -48,7 +48,13 @@ const Main = styled.div`
 const NomuricaLayout: NextPage<Props> = ({ children }: Props) => {
   const { user } = useUser();
 
-  if (user && user.loading) return <Loading />;
+  if (user && user.loading)
+    return (
+      <>
+        <GlobalStyles />
+        <Loading />
+      </>
+    );
 
   return (
     <>

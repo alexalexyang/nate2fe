@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
-
 import { SwipeProps } from "./index";
+import styled from "styled-components";
 
 export const StyledBox = styled.div.attrs<{ data?: SwipeProps }>((props) => {
   const swipeCSS = props.data && {
