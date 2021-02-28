@@ -1,14 +1,14 @@
-import { initAuth0 } from '@auth0/nextjs-auth0';
-import getConfig from 'next/config'
+import { initAuth0 } from "@auth0/nextjs-auth0";
+import getConfig from "next/config";
 
-const { serverRuntimeConfig } = getConfig()
+const { serverRuntimeConfig } = getConfig();
 
 export default initAuth0({
   domain: <string>serverRuntimeConfig.AUTH0_DOMAIN,
   clientId: <string>serverRuntimeConfig.AUTH0_CLIENT_ID,
-  clientSecret: <string>serverRuntimeConfig.AUTH0_SECRET,
+  clientSecret: <string>serverRuntimeConfig.AUTH0_CLIENT_SECRET,
   audience: <string>serverRuntimeConfig.AUTH0_AUDIENCE,
-  scope: 'openid profile',
+  scope: "openid profile",
   redirectUri: <string>serverRuntimeConfig.AUTH0_REDIRECT_URI,
   postLogoutRedirectUri: <string>serverRuntimeConfig.AUTH0_LOGOUT_REDIRECT_URI,
   session: {
@@ -19,18 +19,18 @@ export default initAuth0({
     // (Optional) The cookie domain this should run on. Leave it blank to restrict it to your domain.
     // cookieDomain: serverRuntimeConfig.DOMAIN,
     // (Optional) SameSite configuration for the session cookie. Defaults to 'lax', but can be changed to 'strict' or 'none'. Set it to false if you want to disable the SameSite setting.
-    cookieSameSite: 'lax',
+    cookieSameSite: "lax",
     // (Optional) Store the id_token in the session. Defaults to false.
     storeIdToken: true,
     // (Optional) Store the access_token in the session. Defaults to false.
     storeAccessToken: true,
     // (Optional) Store the refresh_token in the session. Defaults to false.
-    storeRefreshToken: true
+    storeRefreshToken: true,
   },
   oidcClient: {
     // (Optional) Configure the timeout in milliseconds for HTTP requests to Auth0.
     httpTimeout: 2500,
     // (Optional) Configure the clock tolerance in milliseconds, if the time on your server is running behind.
-    clockTolerance: 10000
-  }
+    clockTolerance: 10000,
+  },
 });
