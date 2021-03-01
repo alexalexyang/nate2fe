@@ -2,6 +2,12 @@ import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 
 import { IPalette } from "./theme";
 import { navBarHeight } from "./style-constants";
+import styled from "styled-components";
+
+export const StyledWarning = styled.p`
+  font-size: 1rem;
+  color: #bd1919;
+`;
 
 interface ITheme extends Theme {
   palette: IPalette;
