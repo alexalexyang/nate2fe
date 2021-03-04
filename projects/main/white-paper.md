@@ -8,7 +8,7 @@ It's a funny thing. Long ago I conceived of explorations to undertake but never 
 
 - Anti-hegemony activism. I'm tired of the USA exporting its puritanical values across the world by virtue of its stranglehold on the internet. I will try to bolster the presence of other countries through this app. \* Explain history and method.
 
-- Research. Call it participant observation, action research, practice as research, or some other newfangled academic thing, doesn't matter. I think I'd like to be open about the many things that go into an app like this. User base, revenue, costs, how business considerations mesh with personal inclinations, and so on. It'll me understand the world, and maybe myself, a little bit better.
+- Research. Call it participant observation, action research, practice as research, or some other newfangled academic thing, doesn't matter. I think I'd like to be open about the many things that go into an app like this. User base, revenue, costs, how business considerations mesh with personal inclinations, and so on. It'll help me understand the world, and maybe myself, a little bit better.
 
 ## How clear should the app be on my political leanings?
 
@@ -65,3 +65,7 @@ Commission artists and designers to produce plushies, posters, and other things 
 ### Cute offensive
 
 Full frontal cute offensive weaponising techniques pioneered by Hello Kitty, Keroppi, and their ilk.
+
+## Acknowledgements
+
+I don't have time to explicate so let's just say this app is owes much to Antonio Gramsci, James C. Scott, Reynaldo Ileto, Hannah Arendt, and the discourse of Southeast Asian area studies.
