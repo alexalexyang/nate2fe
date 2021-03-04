@@ -44,6 +44,8 @@ Idk yet.
 
 ## Marketing
 
+This section lays out some options for marketing. Where the commissioning of assets and art is concerned, I would like to commission artists from the Global South and request artworks that reference the diverse societies of that world.
+
 ### Twitter
 
 So boring. But it's the only thing I've time for right now.
@@ -54,7 +56,7 @@ Gotta try these. Also paid ads elsewhere. I think the data might be cool to have
 
 We know Facebook lies and cannot be trusted one bit. But do its ads still make a difference? Or are they a complete waste of money?
 
-### Commissioning web assets
+### Commission web assets
 
 Commission artists and designers to create icons, backgrounds, and other visuals for the look of the app. Ask artists for cross-posts.
 
@@ -65,6 +67,20 @@ Commission artists and designers to produce plushies, posters, and other things 
 ### Cute offensive
 
 Full frontal cute offensive weaponising techniques pioneered by Hello Kitty, Keroppi, and their ilk.
+
+## Asset/Artwork guidelines
+
+These are guidelines, not rules. And my sense of the app's aesthetics is nascent. Let's see how things evolve.
+
+- Nudity is ok.
+
+- Depicting non-heterosexual relations is ok.
+
+- Prefer subtle over overt.
+
+- Less angst, more hope. Where there's little hope, prefer dignity and contemplation. Where there's anger, sometimes it's best to let it free. We'll see.
+
+- No vulgarities in text or visuals. Although, I have some leeway for harsh themes.
 
 ## Acknowledgements
 
