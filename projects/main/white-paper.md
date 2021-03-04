@@ -68,4 +68,4 @@ Full frontal cute offensive weaponising techniques pioneered by Hello Kitty, Ker
 
 ## Acknowledgements
 
-I don't have time to explicate so let's just say this app is owes much to Antonio Gramsci, James C. Scott, Reynaldo Ileto, Hannah Arendt, and the discourse of Southeast Asian area studies.
+I don't have time to explicate so let's just say this app owes much to Antonio Gramsci, James C. Scott, Reynaldo Ileto, Hannah Arendt, and the discourse of Southeast Asian area studies.
