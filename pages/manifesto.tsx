@@ -12,7 +12,7 @@ const converter = new showdown.Converter({
 });
 
 export default function About() {
-  const about = require(`../projects/main/manifesto.md`);
+  const about = require(`../projects/main/white-paper.md`);
   const content = converter.makeHtml(about.default);
 
   return (
