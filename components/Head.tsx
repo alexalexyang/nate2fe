@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
@@ -63,9 +62,7 @@ const PageHead: NextPage<Props> = ({ page }: Props) => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${googleAnalyticsId}', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', '${googleAnalyticsId}');
           `,
         }}
       />
