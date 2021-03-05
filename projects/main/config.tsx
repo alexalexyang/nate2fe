@@ -10,20 +10,35 @@ export const menuItems: menuItem[] = [
   //   url: "/",
   //   auth: false,
   // },
-  {
-    title: "About",
-    url: "/about",
-    auth: false,
-  },
   // {
   //   title: "Manifesto",
   //   url: "/manifesto",
   //   auth: false,
   // },
   {
+    title: "Nomurica",
+    url: "/nomurica",
+    auth: false,
+  },
+  {
+    title: "Swipe",
+    url: "/nomurica/swipe",
+    auth: false,
+  },
+  {
+    title: "Top Movies",
+    url: "/nomurica/top-movies",
+    auth: false,
+  },
+  {
     title: "Settings",
     url: "/settings",
     auth: true,
+  },
+  {
+    title: "About",
+    url: "/about",
+    auth: false,
   },
   {
     title: "Login",

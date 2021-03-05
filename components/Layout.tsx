@@ -1,53 +1,85 @@
 import React, { ReactNode } from "react";
+import styled, { createGlobalStyle } from "styled-components";
 
 import Loading from "./Loading";
 import Navbar from "./NavBar";
 import { NextPage } from "next";
-import styled from "styled-components";
+import { navBarHeight } from "../styles/style-constants";
 import { useUser } from "../context/user";
 
 type Props = {
   children: ReactNode;
 };
 
+const GlobalStyles = createGlobalStyle`
+  body {
+    font-family: Helvetica, sans-serif;
+    background-color: #cfa5da;
+    font-size: 1.5rem;
+    color: #2e2b2b;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+
+    #__next {
+      height: 100%;
+      width: 100%;
+    }
+  }
+`;
+
 const Main = styled.div`
-  padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: 1.5rem;
-`;
+  animation: fadein 0.5s;
+  height: calc(100% - ${navBarHeight});
 
-const Center = styled.div`
-  padding: 0 1rem 0 1rem;
-  display: flex;
-  flex-direction: column;
-
-  p {
-    margin: 0.5rem 0;
-  }
-
-  h4 {
-    margin: 1rem 0 0.5rem;
-  }
-
-  @media (min-width: 750px) {
-    padding: 0;
-    width: 45vw;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;
+
+// const Center = styled.div`
+//   padding: 0 1rem 0 1rem;
+//   display: flex;
+//   flex-direction: column;
+
+//   p {
+//     margin: 0.5rem 0;
+//   }
+
+//   h4 {
+//     margin: 1rem 0 0.5rem;
+//   }
+
+//   @media (min-width: 750px) {
+//     padding: 0;
+//     width: 45vw;
+//   }
+// `;
 
 const MainLayout: NextPage<Props> = ({ children }: Props) => {
   const { user } = useUser();
 
-  if (user && user.loading) return <Loading />;
+  if (user && user.loading)
+    return (
+      <>
+        <GlobalStyles />
+        <Loading />
+      </>
+    );
 
   return (
     <>
+      <GlobalStyles />
       <Navbar />
-      <Main>
-        <Center>{children!}</Center>
-      </Main>
+      <Main>{children!}</Main>
     </>
   );
 };

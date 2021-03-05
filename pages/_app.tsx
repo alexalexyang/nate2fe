@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Head from "next/head";
+import Layout from "../components/Layout";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { User } from "../context/user";
 import getConfig from "next/config";
@@ -43,12 +44,14 @@ export default function App({ Component, pageProps }: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
+
       <User.Provider value={{ user, setUser }}>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </User.Provider>
     </>

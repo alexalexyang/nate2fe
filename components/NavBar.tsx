@@ -62,7 +62,7 @@ const NavBar: NextPage = () => {
   };
 
   return (
-    <AppBar position="static" className={classes.gradient}>
+    <AppBar position="static" className={classes.root}>
       <Toolbar className={classes.spaceBetween}>
         <Link href="/">
           <a href="/" rel="Home">

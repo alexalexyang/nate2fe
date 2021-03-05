@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { Container } from "@material-ui/core";
 import Head from "../../../components/Head";
-import Layout from "../Layout";
 import Loading from "../../../components/Loading";
 import MovieCard from "../movie-card";
 import { MovieProps } from "../types";
@@ -30,7 +29,7 @@ const TopMovies: NextPage = () => {
     movies && movies.map((movie) => <MovieCard key={movie.id} item={movie} />);
 
   return (
-    <Layout>
+    <>
       <Head page="Top Movies | Nomurica" />
       <Container>
         <h1>Top Movies</h1>
@@ -41,7 +40,7 @@ const TopMovies: NextPage = () => {
           <MoviesWrapper>{renderMovies}</MoviesWrapper>
         </Container>
       )}
-    </Layout>
+    </>
   );
 };
 
