@@ -11,9 +11,9 @@ interface Props {
 
 const PageHead: NextPage<Props> = ({ page }: Props) => {
   const pageTitle = page ? `${page} | ` : null;
-  const appDescription = "i am not a cat";
-  const appName = "supermeowkat";
-  const appUrl = "https://supermeowkat.com";
+  const appDescription = publicRuntimeConfig.APP_DESCRIPTION;
+  const appName = publicRuntimeConfig.APP_NAME;
+  const appUrl = publicRuntimeConfig.APP_URL;
 
   return (
     <>

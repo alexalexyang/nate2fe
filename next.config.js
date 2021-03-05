@@ -15,8 +15,9 @@ module.exports = {
     MONGODB_PW: process.env.MONGODB_PW,
   },
   publicRuntimeConfig: {
-    APP_NAME: process.env.APP_NAME,
-    DUMMY: process.env.DUMMY,
+    APP_NAME: "supermeowkat",
+    APP_DESCRIPTION: "i am not a cat",
+    APP_URL: "https://supermeowkat.com",
   },
   webpack(config) {
     config.module.rules.push(
