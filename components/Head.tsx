@@ -21,7 +21,7 @@ const ga = () => {
   });
 
   if (typeof window !== "undefined") {
-    ReactGA.pageview(window.location.pathname ?? "pathname not loaded");
+    ReactGA.pageview(window.location.pathname);
   }
 };
 
