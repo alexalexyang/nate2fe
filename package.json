@@ -19,6 +19,7 @@
     "js-cookie": "^2.2.1",
     "mongodb": "^3.6.3",
     "next": "^10.0.5",
+    "next-seo": "^4.20.0",
     "next-svgr": "0.0.2",
     "raw-loader": "^4.0.2",
     "react": "^17.0.1",
