@@ -14,6 +14,8 @@ const PageHead: NextPage<Props> = ({ page }: Props) => {
   const appDescription = publicRuntimeConfig.APP_DESCRIPTION;
   const appName = publicRuntimeConfig.APP_NAME;
   const appUrl = publicRuntimeConfig.APP_URL;
+  const googleAnalyticsId = publicRuntimeConfig.GOOGLE_ANALYTICS_ID;
+  const twitter = publicRuntimeConfig.TWITTER;
 
   return (
     <>
@@ -45,9 +47,26 @@ const PageHead: NextPage<Props> = ({ page }: Props) => {
           site_name: appName,
         }}
         twitter={{
-          handle: "@supermeowkat",
+          handle: twitter,
           site: appUrl,
           cardType: "summary_large_image",
+        }}
+      />
+
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}', {
+              page_path: window.location.pathname,
+            });
+          `,
         }}
       />
     </>

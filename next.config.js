@@ -18,6 +18,8 @@ module.exports = {
     APP_NAME: "supermeowkat",
     APP_DESCRIPTION: "i am not a cat",
     APP_URL: "https://supermeowkat.com",
+    TWITTER: "@supermeowkat",
+    GOOGLE_ANALYTICS_ID: "UA-155349023-1",
   },
   webpack(config) {
     config.module.rules.push(
