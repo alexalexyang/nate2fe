@@ -20,7 +20,9 @@ const ga = () => {
     titleCase: false,
   });
 
-  ReactGA.pageview(window.location.pathname ?? "pathname not loaded");
+  if (typeof window !== "undefined") {
+    ReactGA.pageview(window.location.pathname ?? "pathname not loaded");
+  }
 };
 
 const PageHead: NextPage<Props> = ({ page }: Props) => {
