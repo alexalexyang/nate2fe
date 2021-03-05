@@ -1,20 +1,32 @@
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
+import ReactGA from "react-ga";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
-
 interface Props {
   page?: string;
 }
 
+const appDescription = publicRuntimeConfig.APP_DESCRIPTION;
+const appName = publicRuntimeConfig.APP_NAME;
+const appUrl = publicRuntimeConfig.APP_URL;
+const googleAnalyticsId = publicRuntimeConfig.GOOGLE_ANALYTICS_ID;
+const twitter = publicRuntimeConfig.TWITTER;
+
+const ga = () => {
+  ReactGA.initialize(googleAnalyticsId, {
+    debug: true,
+    titleCase: false,
+  });
+
+  ReactGA.pageview(window.location.pathname ?? "pathname not loaded");
+};
+
 const PageHead: NextPage<Props> = ({ page }: Props) => {
   const pageTitle = page ? `${page} | ` : null;
-  const appDescription = publicRuntimeConfig.APP_DESCRIPTION;
-  const appName = publicRuntimeConfig.APP_NAME;
-  const appUrl = publicRuntimeConfig.APP_URL;
-  const googleAnalyticsId = publicRuntimeConfig.GOOGLE_ANALYTICS_ID;
-  const twitter = publicRuntimeConfig.TWITTER;
+
+  ga();
 
   return (
     <>
@@ -49,21 +61,6 @@ const PageHead: NextPage<Props> = ({ page }: Props) => {
           handle: twitter,
           site: appUrl,
           cardType: "summary_large_image",
-        }}
-      />
-
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${googleAnalyticsId}');
-          `,
         }}
       />
     </>
