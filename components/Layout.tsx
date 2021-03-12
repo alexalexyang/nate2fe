@@ -45,25 +45,6 @@ const Main = styled.div`
   }
 `;
 
-// const Center = styled.div`
-//   padding: 0 1rem 0 1rem;
-//   display: flex;
-//   flex-direction: column;
-
-//   p {
-//     margin: 0.5rem 0;
-//   }
-
-//   h4 {
-//     margin: 1rem 0 0.5rem;
-//   }
-
-//   @media (min-width: 750px) {
-//     padding: 0;
-//     width: 45vw;
-//   }
-// `;
-
 const MainLayout: NextPage<Props> = ({ children }: Props) => {
   const { user } = useUser();
 

@@ -20,17 +20,8 @@ export const navBarStyles = makeStyles((theme: ITheme) =>
       flexGrow: 1,
       background: "rgb(236, 220, 77)",
     },
-    spaceBetween: {
-      justifyContent: "space-between",
-    },
     menuButton: {
       marginRight: theme.spacing(2),
-    },
-    logo: {
-      flexGrow: 0.5,
-      [theme.breakpoints.down("xs")]: {
-        flexGrow: 1,
-      },
     },
     menuBox: {
       display: "flex",
@@ -47,9 +38,6 @@ export const navBarStyles = makeStyles((theme: ITheme) =>
     menuLink: {
       color: "inherit",
       textDecoration: "inherit",
-    },
-    gradient: {
-      background: theme.palette.gradient.lightGradient,
     },
   })
 );

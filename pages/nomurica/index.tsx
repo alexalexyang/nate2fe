@@ -1,3 +1,3 @@
-import Nomurica from "../../projects/nomurica";
+import Nomurica from "../../apps/nomurica";
 
 export default Nomurica;

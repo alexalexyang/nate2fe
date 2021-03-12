@@ -16,16 +16,6 @@ export const menuItems: menuItem[] = [
   //   auth: false,
   // },
   {
-    title: "Nomurica",
-    url: "/nomurica",
-    auth: false,
-  },
-  {
-    title: "Swipe",
-    url: "/nomurica/swipe",
-    auth: false,
-  },
-  {
     title: "Top Movies",
     url: "/nomurica/top-movies",
     auth: false,

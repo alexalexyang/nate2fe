@@ -1,6 +1,7 @@
 # Todo
 
-- Match people if they like at least 5 of the same movies?
+- Remake: layout, profile, settings
+- Match people if they like at least 5 of the same movies
 - Make new yes/no buttons
 
 - Auth CRUD

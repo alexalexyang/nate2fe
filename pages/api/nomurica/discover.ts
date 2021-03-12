@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { MovieProps } from "../../../projects/nomurica/types";
+import { MovieProps } from "../../../apps/nomurica/types";
 import fetch from "isomorphic-unfetch";
 import getConfig from "next/config";
-import languages from "../../../projects/nomurica/languages_ISO639-1_Alpha2.json";
+import languages from "../../../apps/nomurica/languages_ISO639-1_Alpha2.json";
 import { getMovieDetails } from "./helpers";
 
 interface MoviesFetchProps {

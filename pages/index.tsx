@@ -1,7 +1,6 @@
-import Dashboard from "../components/Dashboard";
 import Head from "../components/Head";
+import Main from "../apps/main/index";
 import { NextPage } from "next";
-import { Typography } from "@material-ui/core";
 // import { useUser } from "../context/user";
 
 const Home: NextPage = () => {
@@ -10,12 +9,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head page="Home" />
-
-      <Typography variant="h3" aria-label="title">
-        Welcome.
-      </Typography>
-
-      <Dashboard />
+      <Main />
     </>
   );
 };

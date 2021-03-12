@@ -1,3 +1,3 @@
-import SwipeMode from "../../projects/nomurica/swipe-mode";
+import SwipeMode from "../../apps/nomurica/swipe-mode";
 
 export default SwipeMode;

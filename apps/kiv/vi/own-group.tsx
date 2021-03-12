@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@material-ui/core";
-import { InviteForm, personalMessage } from "../../projects/vi";
+import { InviteForm, personalMessage } from ".";
 
 import { NextPage } from "next";
 

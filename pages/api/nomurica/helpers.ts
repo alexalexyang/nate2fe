@@ -1,4 +1,4 @@
-import { MovieProps } from "../../../projects/nomurica/types";
+import { MovieProps } from "../../../apps/nomurica/types";
 
 const banned = [
   "United States of America",

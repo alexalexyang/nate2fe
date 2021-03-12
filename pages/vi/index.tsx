@@ -1,10 +1,5 @@
-import { Box, Container, Typography } from "@material-ui/core";
-import {
-  InviteForm,
-  OwnGroup,
-  StartGroupForm,
-  personalMessage,
-} from "../../projects/vi";
+import { Box, Typography } from "@material-ui/core";
+import { OwnGroup, StartGroupForm } from "../../apps/kiv/vi";
 
 import Loading from "../../components/Loading";
 import { NextPage } from "next";

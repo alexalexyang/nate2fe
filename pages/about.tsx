@@ -26,7 +26,7 @@ const StyledImg = styled.img`
 `;
 
 export default function About() {
-  const about = require(`../projects/main/about.md`);
+  const about = require(`../apps/main/about.md`);
   const content = converter.makeHtml(about.default);
 
   return (

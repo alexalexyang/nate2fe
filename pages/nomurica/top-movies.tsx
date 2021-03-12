@@ -1,3 +1,3 @@
-import TopMovies from "../../projects/nomurica/top-movies";
+import TopMovies from "../../apps/nomurica/top-movies";
 
 export default TopMovies;
