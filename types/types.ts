@@ -25,3 +25,18 @@ export interface SwipeFuncProps {
   noFunc: any;
   yesFunc: any;
 }
+
+export interface ContentProps {
+  id: string;
+  originalTitle?: string;
+  title?: string;
+  releaseDate?: string;
+  productionCountries?: string[];
+  languages?: string[];
+  images?: string[];
+  trailers?: { url?: string; type?: string }[];
+  synopsis?: string;
+  authors?: string[];
+  editOn?: { org?: string; url?: string }[];
+  likes?: number;
+}

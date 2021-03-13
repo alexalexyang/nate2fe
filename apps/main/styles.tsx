@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const MainWrapper = styled.div`
   height: 100%;
@@ -6,10 +6,16 @@ export const MainWrapper = styled.div`
   border: 2px solid red;
 `;
 
-export const Content = styled.div`
-  height: 80%;
+export const Body = styled.div`
+  height: 95%;
+  width: 100%;
+`;
+
+export const StyledContent = styled.div`
+  height: 85%;
   width: 100%;
   border: 2px solid green;
+  overflow-y: scroll;
 `;
 
 export const ButtonsWrapper = styled.div`
@@ -17,15 +23,6 @@ export const ButtonsWrapper = styled.div`
   width: 100%;
   border: 2px solid yellow;
   display: flex;
-`;
-
-export const SingleButton = styled.div`
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid blue;
 `;
 
 export const Banner = styled.div`
@@ -40,17 +37,30 @@ export const Banner = styled.div`
   font-size: 1.1rem;
 `;
 
-export const Button = styled.button`
+export const SingleButton = styled.div`
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid blue;
+`;
+
+export const Button = styled.button<{ touchScreen?: boolean }>`
   height: 50px;
   width: 50px;
   border: 2px solid lightcoral;
   background: none;
 
-  /* :hover {
-    height: 60px;
-    width: 60px;
-    transition: width 0.2s, height 0.2s;
-  } */
+  ${({ touchScreen }) =>
+    !touchScreen &&
+    css`
+      :hover {
+        height: 60px;
+        width: 60px;
+        transition: width 0.2s, height 0.2s;
+      }
+    `}
 
   :active {
     height: 40px;

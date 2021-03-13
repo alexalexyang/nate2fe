@@ -24,7 +24,7 @@ interface SwipeModeProps {
   fetchUrl: string;
 }
 
-const SwipeGroup = <T extends object, Extra extends object>({
+const SwipeGroup = <T extends object>({
   Render,
   yesFunc,
   noFunc,
