@@ -32,15 +32,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     return management.users.delete({ id }, (error: any) => {
       if (error) {
-        console.log("ERROR ON DELETE");
-        console.log(error);
         return res.status(error.status || 500).json({ success: false });
       }
 
       res.status(200).json({ success: true });
     });
   } catch (error) {
-    console.log(error);
     res.status(error.status || 500).json({ success: false });
   }
 };

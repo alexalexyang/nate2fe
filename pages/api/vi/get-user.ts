@@ -19,15 +19,12 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     const result = await response.json();
-    console.log("RESULT: ", result);
-    // console.log("API: ", result.payload.group);
 
     res.status(200).json({
       success: true,
       groups: result.payload.groups,
     });
   } catch (error) {
-    console.log("ERROR");
     res.status(error.status || 500).json({
       code: error.code,
       error: error.message,

@@ -39,7 +39,6 @@ const getMovies = async (req: NextApiRequest, res: NextApiResponse) => {
       movies,
     });
   } catch (error) {
-    console.log(error);
     res.status(error.status || 500).json({
       code: error.code,
       error: error.message,

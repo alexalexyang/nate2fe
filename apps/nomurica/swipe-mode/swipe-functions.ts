@@ -9,7 +9,6 @@ export const yesFunc = async (
   if (!movies.data || !movies.data.length) {
     return;
   }
-  // console.log(movies);
 
   setTimeout(() => {
     const currentMovie = movies.data && movies.data.pop();
@@ -30,7 +29,7 @@ export const noFunc = (
   if (!movies.data || !movies.data.length) {
     return;
   }
-  // console.log(movies);
+
   setTimeout(() => {
     movies.data && movies.data.pop();
     setMovies({ ...movies });

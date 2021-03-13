@@ -24,7 +24,6 @@ const likes = async (req: NextApiRequest, res: NextApiResponse) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
     res.status(error.status || 500).json({
       code: error.code,
       error: error.message,

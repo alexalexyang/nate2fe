@@ -10,8 +10,6 @@ export default async function invite(
   try {
     const tokenCache = auth0.tokenCache(req, res);
     const { accessToken } = await tokenCache.getAccessToken();
-    // console.log({accessToken})
-    // console.log(req.body)
 
     const endpoint = `http://localhost:5000/api/private/vi/invite`;
 
@@ -25,8 +23,6 @@ export default async function invite(
     });
 
     const result = await response.json();
-    // console.log({ result });
-    // console.log(result.payload.alreadyInvited);
 
     res.status(200).json({ success: true, ...result.payload });
   } catch (error) {

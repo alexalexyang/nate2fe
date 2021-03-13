@@ -48,7 +48,6 @@ const Settings: NextPage = () => {
       if (!data[key]) delete data[key];
     }
     setProfile({ ...profile, ...data });
-    console.log(data);
 
     // Save new profile to database.
   };

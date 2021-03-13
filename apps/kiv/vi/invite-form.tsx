@@ -49,7 +49,6 @@ const InviteForm: NextPage<InviteFormProps> = ({ personalMessage, degree }) => {
 
           const { success, invited, alreadyInvited } = await response.json();
           // put invited and alreadyInvited into context
-          if (success === true) return console.log("Success");
           setSubmitError(success);
           setSubmitting(false);
         })}

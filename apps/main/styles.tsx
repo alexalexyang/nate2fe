@@ -9,6 +9,8 @@ export const MainWrapper = styled.div`
 export const Body = styled.div`
   height: 95%;
   width: 100%;
+  position: relative;
+  border: 2px solid blue;
 `;
 
 export const StyledContent = styled.div`
@@ -23,6 +25,13 @@ export const ButtonsWrapper = styled.div`
   width: 100%;
   border: 2px solid yellow;
   display: flex;
+`;
+
+export const Layers = styled.div`
+  height: 100%;
+  width: 100%;
+  border: 2px solid chartreuse;
+  position: absolute;
 `;
 
 export const Banner = styled.div`

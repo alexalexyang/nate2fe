@@ -13,8 +13,6 @@ const OwnGroup: NextPage<OwnGroupProps> = ({ user }: OwnGroupProps) => {
 
   // Render group members
 
-  //   console.log(user.groups.ownGroup);
-
   return (
     <>
       <Box>

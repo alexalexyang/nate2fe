@@ -50,7 +50,6 @@ const Nomurica: NextPage = () => {
     setMovies(movies);
     setLoading(false);
   };
-  // console.log(movies);
   return (
     <>
       <Head page="Nomurica" />

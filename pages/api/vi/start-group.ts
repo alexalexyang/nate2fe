@@ -7,9 +7,6 @@ const startGroup = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const tokenCache = auth0.tokenCache(req, res);
     const { accessToken } = await tokenCache.getAccessToken();
-    // console.log({accessToken})
-    // console.log(req.body)
-
     const endpoint = `http://localhost:5000/api/private/vi/start-group`;
 
     let response = await fetch(endpoint, {
@@ -22,8 +19,6 @@ const startGroup = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     const result = await response.json();
-    console.log({ result });
-    console.log(result.payload.group);
 
     res.status(200).json({ success: true });
   } catch (error) {
