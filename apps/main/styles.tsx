@@ -3,35 +3,37 @@ import styled, { css } from "styled-components";
 export const MainWrapper = styled.div`
   height: 100%;
   width: 100%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 `;
 
 export const Body = styled.div`
   height: 95%;
   width: 100%;
-  position: relative;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 `;
 
-export const StyledContent = styled.div`
-  height: 85%;
+export const ContentLayer = styled.div`
+  height: 100%;
   width: 100%;
-  border: 2px solid green;
+  /* border: 2px solid green; */
+  position: absolute;
+  background-color: #eed9f5;
   overflow-y: scroll;
 `;
 
 export const ButtonsWrapper = styled.div`
   height: 15%;
   width: 100%;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   display: flex;
+  background-color: #f0c8ff;
 `;
 
-export const Layers = styled.div`
-  height: 100%;
+export const StyledContent = styled.div`
+  height: 85%;
   width: 100%;
-  border: 2px solid chartreuse;
-  position: absolute;
+  /* border: 2px solid chartreuse; */
+  position: relative;
 `;
 
 export const Banner = styled.div`
@@ -52,30 +54,34 @@ export const SingleButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 `;
 
-export const Button = styled.button<{ touchScreen?: boolean }>`
-  height: 50px;
-  width: 50px;
-  border: 2px solid lightcoral;
+const ButtonSize = "50px";
+const ButtonSizeHover = "70px";
+const ButtonSizeActive = "30px";
+
+export const Button = styled.button<{ isTouchScreen?: boolean }>`
+  height: ${ButtonSize};
+  width: ${ButtonSize};
+  border: none;
   background: none;
 
-  ${({ touchScreen }) =>
-    !touchScreen &&
+  ${({ isTouchScreen }) =>
+    !isTouchScreen &&
     css`
       :hover {
-        height: 60px;
-        width: 60px;
+        height: ${ButtonSizeHover};
+        width: ${ButtonSizeHover};
         transition: width 0.2s, height 0.2s;
       }
     `}
 
   :active {
-    height: 40px;
-    width: 40px;
+    height: ${ButtonSizeActive};
+    width: ${ButtonSizeActive};
     transition: width 0.2s, height 0.2s;
-    background-color: pink;
+    /* background-color: pink; */
   }
 `;
 

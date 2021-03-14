@@ -1,3 +1,5 @@
+import { ButtonGroupSwitch, CardGroupSwitch } from "./content-components";
+import { ButtonsWrapper, StyledContent } from "../styles";
 import {
   ContentRequest,
   RenderComponent,
@@ -9,7 +11,6 @@ import {
   switchSet,
 } from "../../../components/SwipeGroup/helpers";
 
-import { CardGroupSwitch } from "./content-components";
 import Loading from "../../../components/Loading";
 
 const initialState = {
@@ -50,16 +51,31 @@ const SwipeGroup = <T extends object>({
     return <Loading />;
 
   return (
-    <CardGroupSwitch
-      displaySet={displaySet}
-      set1={set1}
-      setSet1={setSet1}
-      set2={set2}
-      setSet2={setSet2}
-      Render={Render}
-      yesFunc={yesFunc}
-      noFunc={noFunc}
-    />
+    <>
+      <StyledContent>
+        <CardGroupSwitch
+          displaySet={displaySet}
+          set1={set1}
+          setSet1={setSet1}
+          set2={set2}
+          setSet2={setSet2}
+          Render={Render}
+          yesFunc={yesFunc}
+          noFunc={noFunc}
+        />
+      </StyledContent>
+      <ButtonsWrapper>
+        <ButtonGroupSwitch
+          displaySet={displaySet}
+          set1={set1}
+          setSet1={setSet1}
+          set2={set2}
+          setSet2={setSet2}
+          yesFunc={yesFunc}
+          noFunc={noFunc}
+        />
+      </ButtonsWrapper>
+    </>
   );
 };
 

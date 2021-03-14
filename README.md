@@ -22,3 +22,7 @@
 [node-auth0's other docs](https://auth0.github.io/node-auth0/module-management.ClientGrantsManager.html#create)
 
 Mongoose kept breaking with this [problem](https://github.com/vercel/next.js/discussions/12229) so I went directly with the MongoDB client according to [this](https://vercel.com/guides/deploying-a-mongodb-powered-api-with-node-and-vercel) solution instead.
+
+# Licenses
+
+[Font Awesome Creative Commons Attribution 4.0 International license](https://fontawesome.com/license)

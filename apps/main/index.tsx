@@ -1,4 +1,5 @@
 import { Body, MainWrapper } from "./styles";
+import { noFunc, yesFunc } from "./helpers";
 
 import Cause from "./cause";
 import Content from "./content";
@@ -11,8 +12,8 @@ const Main: NextPage = () => {
       <Body>
         <SwipeGroup
           Render={Content as any}
-          noFunc={() => {}}
-          yesFunc={() => {}}
+          noFunc={noFunc}
+          yesFunc={yesFunc}
           fetchUrl={`/api/get-swipe-content`}
         />
       </Body>

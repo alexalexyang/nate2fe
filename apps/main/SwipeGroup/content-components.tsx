@@ -6,6 +6,8 @@ import {
 } from "../../../types/types";
 import { Dispatch, SetStateAction } from "react";
 
+import YesNoButtons from "./yes-no-buttons";
+
 const CardGroup = <T extends object, Extra extends object>({
   set,
   Render,
@@ -64,6 +66,38 @@ export const CardGroupSwitch = <T extends object, Extra extends object>({
         {...(extra as Extra)}
         yesFunc={yesFunc}
         noFunc={noFunc}
+      />
+    );
+  }
+  return null;
+};
+
+export const ButtonGroupSwitch = <T extends object>({
+  displaySet,
+  set1,
+  setSet1,
+  set2,
+  setSet2,
+  yesFunc,
+  noFunc,
+}: SwitchProps<T> & SwipeFuncProps) => {
+  if (displaySet === "set1" && set1 && set1.data && set1.data.length) {
+    return (
+      <YesNoButtons
+        set={set1}
+        setSet={setSet1}
+        noFunc={noFunc}
+        yesFunc={yesFunc}
+      />
+    );
+  }
+  if (displaySet == "set2" && set2 && set2.data && set2.data.length) {
+    return (
+      <YesNoButtons
+        set={set2}
+        setSet={setSet2}
+        noFunc={noFunc}
+        yesFunc={yesFunc}
       />
     );
   }
