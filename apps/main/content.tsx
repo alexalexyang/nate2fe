@@ -72,6 +72,7 @@ const Content: NextPage<ItemProps> = ({ item }: ItemProps) => {
             swipe={true}
             autoPlay={false}
             navButtonsProps={{
+              className: "required-classname-for-some-reason",
               style: {
                 backgroundColor: "blueviolet",
               },
