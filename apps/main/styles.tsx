@@ -19,6 +19,55 @@ export const ContentLayer = styled.div`
   position: absolute;
   background-color: #eed9f5;
   overflow-y: scroll;
+  padding: 0 1rem 0;
+
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  header > p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  article {
+    margin-top: 1rem;
+    text-align: justify;
+    font-size: 1.1rem;
+  }
+`;
+
+export const TrailersWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  margin: 1rem 0;
+  justify-content: space-evenly;
+`;
+
+export const ImageWrapper = styled.section`
+  height: 200px;
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Footer = styled.footer`
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid lightgray;
+  text-align: right;
+  font-size: 1rem;
+
+  > * {
+    margin-left: 0.5rem;
+  }
+
+  a {
+    color: #0084ff;
+    text-decoration: none;
+  }
 `;
 
 export const ButtonsWrapper = styled.div`

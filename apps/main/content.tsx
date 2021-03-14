@@ -1,5 +1,8 @@
-import { ContentLayer } from "./styles";
+import { ContentLayer, Footer, ImageWrapper, TrailersWrapper } from "./styles";
+
+import Carousel from "react-material-ui-carousel";
 import { ContentProps } from "../../types/types";
+import FullScreen from "./full-screen";
 import { NextPage } from "next";
 
 interface ItemProps {
@@ -23,25 +26,89 @@ const Content: NextPage<ItemProps> = ({ item }: ItemProps) => {
 
   return (
     <ContentLayer key={id}>
-      {title && <p>{title}</p>}
+      <section>
+        <header>
+          {title && <h1>{title}</h1>}
+          {originalTitle && <p>Original title: {originalTitle}</p>}
+          {authors && authors.length ? (
+            <p>
+              Authors:{" "}
+              {authors.map((author, idx) => (
+                <span key={author}>
+                  {author}
+                  {!(authors.length === idx + 1) && ", "}
+                </span>
+              ))}
+            </p>
+          ) : null}
+          {productionCountries && productionCountries.length ? (
+            <p>
+              Countries:{" "}
+              {productionCountries.map((country, idx) => (
+                <span key={country}>
+                  {country}
+                  {!(productionCountries.length === idx + 1) && ", "}
+                </span>
+              ))}
+            </p>
+          ) : null}
+          {releaseDate && <p>Released: {releaseDate}</p>}
+          {languages && languages.length ? (
+            <p>
+              Languages:{" "}
+              {languages.map((lang, idx) => (
+                <span key={lang}>
+                  {lang}
+                  {!(languages.length === idx + 1) && ", "}
+                </span>
+              ))}
+            </p>
+          ) : null}
+        </header>
 
-      {originalTitle && <p>{originalTitle}</p>}
+        {images && images.length ? (
+          <Carousel
+            interval={10000}
+            swipe={true}
+            autoPlay={false}
+            navButtonsProps={{
+              style: {
+                backgroundColor: "blueviolet",
+              },
+            }}
+          >
+            {images.map((imageUrl) => (
+              <ImageWrapper key={imageUrl}>
+                <img src={imageUrl} alt={title} />
+              </ImageWrapper>
+            ))}
+          </Carousel>
+        ) : null}
 
-      {authors && <p>{authors}</p>}
+        {trailers && trailers.length ? (
+          <TrailersWrapper>
+            {trailers.map((trailer, idx) => (
+              <FullScreen key={trailer.url} trailer={trailer} num={idx + 1} />
+            ))}
+          </TrailersWrapper>
+        ) : null}
 
-      {productionCountries && <p>{productionCountries}</p>}
+        {synopsis && <article>{synopsis}</article>}
 
-      {releaseDate && <p>{releaseDate}</p>}
-
-      {languages && <p>{languages}</p>}
-
-      {/* {images && <h1>{images}</h1>} */}
-
-      {/* {trailers && <h1>{trailers}</h1>} */}
-
-      {synopsis && <p>{synopsis}</p>}
-
-      {/* {editOn && <p>{editOn}</p>} */}
+        {editOn && editOn.length ? (
+          <Footer>
+            <span>Edit on:</span>{" "}
+            {editOn.map((org, idx) => (
+              <span key={org.url}>
+                <a href={org.url} target="__blank">
+                  {org.org}
+                </a>
+                {!(editOn.length === idx + 1) && ", "}
+              </span>
+            ))}
+          </Footer>
+        ) : null}
+      </section>
     </ContentLayer>
   );
 };

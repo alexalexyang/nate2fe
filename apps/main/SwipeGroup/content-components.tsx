@@ -18,9 +18,11 @@ const CardGroup = <T extends object, Extra extends object>({
   <>
     {set &&
       set.data &&
-      set.data.map((item: T, idx: number) => (
-        <Render key={idx} item={item} {...(extra as Extra)} />
-      ))}
+      set.data
+        .slice(set.data.length - 1, set.data.length)
+        .map((item: T, idx: number) => (
+          <Render key={idx} item={item} {...(extra as Extra)} />
+        ))}
   </>
 );
 
