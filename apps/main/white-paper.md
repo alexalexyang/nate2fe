@@ -44,7 +44,19 @@ Idk yet.
 
 ## Marketing
 
+### Marketing literature review
+
+[Launch Lessons: How Tinder, Reddit, Airbnb, Etsy and Uber got their first users](https://www.freecodecamp.org/news/growth-hacking-lessons-from-the-big-guys-daebb2c791d2/)
+
+All of these got lots of money for pre-launch marketing. So, not for me.
+
+### Marketing Options
+
 This section lays out some options for marketing. Where the commissioning of assets and art is concerned, I would like to commission artists from the Global South and request artworks that reference the diverse societies of that world.
+
+### Video
+
+Fancy video explaining what the app does.
 
 ### Twitter
 
@@ -55,6 +67,10 @@ So boring. But it's the only thing I've time for right now.
 Gotta try these. Also paid ads elsewhere. I think the data might be cool to have. Like, how much investment leads to how much conversion.
 
 We know Facebook lies and cannot be trusted one bit. But do its ads still make a difference? Or are they a complete waste of money?
+
+### Others
+
+Post to different networks? Press releases?
 
 ### Commission web assets
 

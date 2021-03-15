@@ -14,7 +14,7 @@ const Main: NextPage = () => {
           Render={Content as any}
           noFunc={noFunc}
           yesFunc={yesFunc}
-          fetchUrl={`/api/get-content`}
+          fetchUrl={`/api/content/get-content`}
         />
       </Body>
       <Cause />
