@@ -3,12 +3,14 @@ import { NextPage } from "next";
 
 const getCause = () => {
   const causes = [
-    "End the coup in Myanmar.",
+    "End the military coup in Myanmar.",
+    "Pyit Taing Htaung",
     "End lese majeste in Thailand.",
     "Rohingya lives matter.",
     "Uyghur lives matter.",
     "Justice for Khashoggi.",
-    "Democracy for Hong Kong.",
+    "Liberty for Hong Kong.",
+    "End abuses in West Papua",
   ];
 
   return causes[Math.floor(Math.random() * causes.length)];

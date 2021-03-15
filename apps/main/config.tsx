@@ -5,11 +5,11 @@ export interface menuItem {
 }
 
 export const menuItems: menuItem[] = [
-  // {
-  //   title: "Home",
-  //   url: "/",
-  //   auth: false,
-  // },
+  {
+    title: "Home",
+    url: "/",
+    auth: false,
+  },
   // {
   //   title: "Manifesto",
   //   url: "/manifesto",

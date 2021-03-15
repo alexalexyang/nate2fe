@@ -1,13 +1,16 @@
 # Todo
 
-- Remake: layout, profile, settings
+- Remake: profile, settings
 - Match people if they like at least 5 of the same movies
-- Make new yes/no buttons
 
 - Auth CRUD
 
   - Remember to set up which Auth0 tenant to add user to and delete from.
   - Delete is in [hooks](https://manage.auth0.com/dashboard/eu/alexalexyang/hooks).
+
+- Research Calibre for books
+- Maybe add academic papers?
+- Add food. Take photos, tag them, upload to backblaze. Collaborate with influencers to get photos of diverse cuisine.
 
 - invite-form.tsx:
   - render invited and alreadyInvited

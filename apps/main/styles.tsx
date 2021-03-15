@@ -17,7 +17,7 @@ export const ContentLayer = styled.div`
   width: 100%;
   /* border: 2px solid green; */
   position: absolute;
-  background-color: #eed9f5;
+  background-color: rgba(245, 235, 245, 0.6);
   overflow-y: scroll;
   padding: 0 1rem 0;
 
@@ -43,6 +43,13 @@ export const TrailersWrapper = styled.section`
   display: flex;
   margin: 1rem 0;
   justify-content: space-evenly;
+`;
+
+export const CarouselWrapper = styled.section`
+  margin: 0.5rem 0;
+  border-radius: 10%;
+  border: 1px solid #c2b9b9;
+  background-color: rgba(237, 245, 247, 0.5);
 `;
 
 export const ImageWrapper = styled.section`

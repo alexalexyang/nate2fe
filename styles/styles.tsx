@@ -17,27 +17,30 @@ export const navBarStyles = makeStyles((theme: ITheme) =>
   createStyles({
     root: {
       height: navBarHeight,
-      flexGrow: 1,
+      width: "100%",
       background: "rgb(236, 220, 77)",
     },
     menuButton: {
       marginRight: theme.spacing(2),
     },
     menuBox: {
+      height: "100%",
+      width: "100%",
       display: "flex",
-      flexGrow: 1,
-      [theme.breakpoints.down("xs")]: {
-        flexGrow: 0,
-      },
+      padding: 0,
+      minHeight: "0",
     },
     menuItems: {
+      height: "100%",
+      width: "100%",
       display: "flex",
-      flex: 1,
       justifyContent: "space-around",
+      alignItems: "center",
     },
     menuLink: {
-      color: "inherit",
-      textDecoration: "inherit",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     },
   })
 );

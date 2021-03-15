@@ -1,4 +1,10 @@
-import { ContentLayer, Footer, ImageWrapper, TrailersWrapper } from "./styles";
+import {
+  CarouselWrapper,
+  ContentLayer,
+  Footer,
+  ImageWrapper,
+  TrailersWrapper,
+} from "./styles";
 
 import Carousel from "react-material-ui-carousel";
 import { ContentProps } from "../../types/types";
@@ -67,23 +73,25 @@ const Content: NextPage<ItemProps> = ({ item }: ItemProps) => {
         </header>
 
         {images && images.length ? (
-          <Carousel
-            interval={10000}
-            swipe={true}
-            autoPlay={false}
-            navButtonsProps={{
-              className: "required-classname-for-some-reason",
-              style: {
-                backgroundColor: "blueviolet",
-              },
-            }}
-          >
-            {images.map((imageUrl) => (
-              <ImageWrapper key={imageUrl}>
-                <img src={imageUrl} alt={title} />
-              </ImageWrapper>
-            ))}
-          </Carousel>
+          <CarouselWrapper>
+            <Carousel
+              interval={10000}
+              swipe={true}
+              autoPlay={false}
+              navButtonsProps={{
+                className: "required-classname-for-some-reason",
+                style: {
+                  backgroundColor: "blueviolet",
+                },
+              }}
+            >
+              {images.map((imageUrl) => (
+                <ImageWrapper key={imageUrl}>
+                  <img src={imageUrl} alt={title} />
+                </ImageWrapper>
+              ))}
+            </Carousel>
+          </CarouselWrapper>
         ) : null}
 
         {trailers && trailers.length ? (
