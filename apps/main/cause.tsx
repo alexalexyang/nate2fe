@@ -1,7 +1,21 @@
 import { Banner } from "./styles";
 import { NextPage } from "next";
+import styled from "styled-components";
+import { useState } from "react";
 
-const getCause = () => {
+const StyledCause = styled.p`
+  animation: fadeIn ease 2s;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+const GetCause: NextPage = () => {
   const causes = [
     "End the military coup in Myanmar.",
     "Pyit Taing Htaung",
@@ -13,11 +27,23 @@ const getCause = () => {
     "End abuses in West Papua",
   ];
 
-  return causes[Math.floor(Math.random() * causes.length)];
+  const [cause, setCause] = useState("");
+
+  setInterval(() => {
+    setCause("");
+    const randomCause = causes[Math.floor(Math.random() * causes.length)];
+    setCause(randomCause);
+  }, 10000);
+
+  return cause && <StyledCause>{cause}</StyledCause>;
 };
 
 const Cause: NextPage = () => {
-  return <Banner>{getCause()}</Banner>;
+  return (
+    <Banner>
+      <GetCause />
+    </Banner>
+  );
 };
 
 export default Cause;

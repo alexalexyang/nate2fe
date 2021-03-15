@@ -102,6 +102,8 @@ export const Banner = styled.div`
   background-color: darkorchid;
   color: white;
   font-size: 1.1rem;
+
+  animation: fadein 0.5s;
 `;
 
 export const SingleButton = styled.div`

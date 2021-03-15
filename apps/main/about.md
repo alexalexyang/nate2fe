@@ -8,6 +8,6 @@ Let's see how it goes.
 
 Follow on [Twitter](https://twitter.com/supermeowkat).
 
-[Mail only love letters.](mailto:alexalexyang@gmail.com).
+[Mail only love letters.](mailto:alexalexyang@gmail.com)
 
 Thank you.
