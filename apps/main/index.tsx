@@ -1,4 +1,4 @@
-import { Body, MainWrapper } from "./styles";
+import { Banner, Body, MainWrapper } from "./styles";
 import { noFunc, yesFunc } from "./helpers";
 
 import Cause from "./cause";
@@ -17,7 +17,9 @@ const Main: NextPage = () => {
           fetchUrl={`/api/content/get-content`}
         />
       </Body>
-      <Cause />
+      <Banner>
+        <Cause />
+      </Banner>
     </MainWrapper>
   );
 };
