@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
+
 import { NextPage } from "next";
 import styled from "styled-components";
-import { useState } from "react";
 
 const FadeInP = styled.p`
   animation: fadeIn ease 2s;
@@ -60,11 +61,14 @@ const Cause: NextPage = () => {
     causes[Math.floor(Math.random() * causes.length)]
   );
 
-  setInterval(() => {
-    setCause(null);
-    const randomCause = causes[Math.floor(Math.random() * causes.length)];
-    setCause(randomCause);
-  }, 25000);
+  useEffect(() => {
+    setInterval(() => {
+      console.log("ping");
+      setCause(null);
+      const randomCause = causes[Math.floor(Math.random() * causes.length)];
+      setCause(randomCause);
+    }, 5000);
+  }, []);
 
   return cause ? (
     <FadeInP>
