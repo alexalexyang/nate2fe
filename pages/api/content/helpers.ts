@@ -45,6 +45,18 @@ export const getMovieDetails = async (movie: ContentProps, tmdbV3: string) => {
     }
 
     movie.productionCountries = production_countries;
+
+    const allImages = await (
+      await fetch(
+        `https://api.themoviedb.org/3/movie/${movie.id}/images?${tmdbV3}`
+      )
+    ).json();
+
+    movie.images =
+      allImages.posters &&
+      allImages.posters.map(
+        (poster: any) => `https://image.tmdb.org/t/p/w342${poster.file_path}`
+      );
   }
   return movie;
 };

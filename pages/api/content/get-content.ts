@@ -108,9 +108,7 @@ export default async function getSwipeContent(
       releaseDate: movie.release_date,
       productionCountries: movie.productionCountries,
       languages: [movie.original_language],
-      images: movie.poster_path
-        ? [`https://image.tmdb.org/t/p/w342${movie.poster_path}`]
-        : [],
+      images: movie.images,
       trailers: movie.trailers,
       synopsis: movie.overview,
       editOn: [

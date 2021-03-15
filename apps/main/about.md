@@ -1,9 +1,13 @@
 # About
 
-Everything here is experimental.
+Learning in the open how to build a social network.
 
-If you experience problems with my stuff, don't complain. Send pull requests to my git repo.
+This app started as a way to surface films from the Global South because I got sick and tired of US cultural hegemony burying everyone else's voices. It has since evolved into something a wee bit more ambitious.
 
-[Mail me only love letters.](mailto:alexalexyang@gmail.com)
+Let's see how it goes.
+
+Follow on [Twitter](https://twitter.com/supermeowkat).
+
+[Mail only love letters.](mailto:alexalexyang@gmail.com).
 
 Thank you.

@@ -1,17 +1,11 @@
-import {
-  AppBar,
-  CssBaseline,
-  Slide,
-  Toolbar,
-  useScrollTrigger,
-} from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import { AppBar, Toolbar } from "@material-ui/core";
 import { menuItem, menuItems } from "../apps/main/config";
 
 import Home from "../public/fa-heart-regular.svg";
 import Link from "next/link";
 import Login from "../public/fa-sign-in-alt-solid.svg";
 import { NextPage } from "next";
+import React from "react";
 import SettingsAndProfile from "../public/fa-user-regular.svg";
 import Star from "../public/fa-star-regular.svg";
 import { navBarStyles } from "../styles/styles";
