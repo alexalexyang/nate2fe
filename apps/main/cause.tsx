@@ -63,11 +63,10 @@ const Cause: NextPage = () => {
 
   useEffect(() => {
     setInterval(() => {
-      console.log("ping");
       setCause(null);
       const randomCause = causes[Math.floor(Math.random() * causes.length)];
       setCause(randomCause);
-    }, 5000);
+    }, 30000);
   }, []);
 
   return cause ? (
