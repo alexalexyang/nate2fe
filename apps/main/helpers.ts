@@ -10,7 +10,7 @@ export const yesFunc = async <T>(
 
   setTimeout(() => {
     const currentSet = set.data && set.data.pop();
-    console.log(currentSet);
+
     // currentSet &&
     //   fetch(
     //     // `/api/nomurica/likes?movie_id=${currentMovie.id}&movie_title=${currentMovie.title}`

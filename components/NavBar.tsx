@@ -18,8 +18,8 @@ const NavBar: NextPage = () => {
 
   const itemLink = (item: menuItem) => {
     return (
-      <Link href={item.url}>
-        <a className={classes.menuLink} href={item.url}>
+      <Link href={item.url} key={item.url}>
+        <a className={classes.menuLink} href={item.url} key={item.url}>
           {item.title}
         </a>
       </Link>
@@ -37,8 +37,8 @@ const NavBar: NextPage = () => {
 
       if (item.title === "Home")
         return (
-          <Link href={item.url}>
-            <a className={classes.menuLink} href={item.url}>
+          <Link href={item.url} key={item.url}>
+            <a className={classes.menuLink} href={item.url} key={item.url}>
               <Home
                 fill={pathname === "/" ? "#6849d8" : "#aec1cf"}
                 alt={item.title}
@@ -50,8 +50,8 @@ const NavBar: NextPage = () => {
 
       if (item.title === "Login") {
         return user && user.auth ? null : (
-          <Link href={item.url}>
-            <a className={classes.menuLink} href={item.url}>
+          <Link href={item.url} key={item.url}>
+            <a className={classes.menuLink} href={item.url} key={item.url}>
               <Login fill="#aec1cf" alt={item.title} height="35px" />
             </a>
           </Link>
@@ -60,8 +60,8 @@ const NavBar: NextPage = () => {
 
       if (item.title === "Top Movies")
         return (
-          <Link href={item.url}>
-            <a className={classes.menuLink} href={item.url}>
+          <Link href={item.url} key={item.url}>
+            <a className={classes.menuLink} href={item.url} key={item.url}>
               <Star
                 fill={pathname.includes(item.url) ? "#D84949" : "#aec1cf"}
                 alt={item.title}
@@ -73,8 +73,8 @@ const NavBar: NextPage = () => {
 
       if (item.title === "About")
         return (
-          <Link href={item.url}>
-            <a className={classes.menuLink} href={item.url}>
+          <Link href={item.url} key={item.url}>
+            <a className={classes.menuLink} href={item.url} key={item.url}>
               <SettingsAndProfile
                 fill={pathname.includes(item.url) ? "#008080" : "#aec1cf"}
                 alt={item.title}

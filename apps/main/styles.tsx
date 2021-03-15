@@ -47,9 +47,13 @@ export const TrailersWrapper = styled.section`
 
 export const CarouselWrapper = styled.section`
   margin: 0.5rem 0;
-  border-radius: 10%;
+  border-radius: 4rem;
   border: 1px solid #c2b9b9;
   background-color: rgba(237, 245, 247, 0.5);
+
+  @media (min-width: 500px) {
+    border-radius: 2rem;
+  }
 `;
 
 export const ImageWrapper = styled.section`
