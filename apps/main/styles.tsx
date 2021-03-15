@@ -4,6 +4,20 @@ export const MainWrapper = styled.div`
   height: 100%;
   width: 100%;
   /* border: 2px solid red; */
+
+  @media (min-width: 1000px) {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    && {
+      > * {
+        width: 1000px;
+      }
+    }
+  }
 `;
 
 export const Body = styled.div`
